@@ -1,0 +1,18 @@
+<div class="page">
+    <div class="banner">
+      <div>
+        Searchbar here
+      </div>
+      <div>
+        Button here
+      </div>
+    </div>
+    <div class="button-container">
+      second button here
+    </div>
+    <div class="cards-container">
+      <% @favorites.each do |favorite| %>
+      <%= render partial: "games"%>
+      <% end %>
+    </div>
+  </div>
