@@ -1,13 +1,13 @@
 // Specific CSS for your home-page
 .homepage-background {
   background-image: asset-url('banner.jpg');
-  // background-color: rgb(173, 121, 121);
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   color: $light-gray;
+  flex-direction: column;
 }
 
 .homepage-box {
@@ -20,20 +20,63 @@
 .homepage-h1 {
   font-size: 6vw;
   font-weight: bold;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 10 auto; /* Gives that scrolling effect as the typing happens */
+  animation:
+    typing 0.75s steps(40, end),
 }
 
-.homepage-comments {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
 
-  &p {
+
+
+.homepage-comments {
+  width: 85vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+
+  & p {
+    width: 25vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
   }
 }
 
-.padding {
-  padding: 15px 25px;
+
+@media(max-width: 768px) {
+  .homepage-comments p {
+    font-size: 15px;
+  }
+
+  .homepage-comments .p2 {
+    font-size: 18px;
+  }
+}
+
+@media(min-width: 768px) and (max-width: 992px) {
+  .homepage-comments p {
+    font-size: 20px;
+  }
+
+  .homepage-comments .p2 {
+    font-size: 25px;
+  }
+}
+
+@media(min-width: 992px) {
+  .homepage-comments p {
+    font-size: 25px;
+  }
+
+  .homepage-comments .p2 {
+    font-size: 30px;
+  }
 }

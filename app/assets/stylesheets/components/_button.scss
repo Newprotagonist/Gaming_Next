@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 5%;
   text-decoration: none;
   font-weight: bold;
 
@@ -21,6 +21,7 @@
 
 .button-dark-blue {
   background-color: $dark-blue;
+  box-shadow: 0 0 15px rgba(245, 245, 245, 0.4);
   &:hover {
     background-color: $middle-blue;
   }
@@ -32,6 +33,6 @@
 }
 
 .button-big {
-  font-size: 40px;
-  padding: 15px;
+  font-size: 3vw;
+  padding: 1vw 7vw;
 }
