@@ -1,38 +1,43 @@
-<div class="container d-flex justify-content-center m-3">
+<div class="container m-3">
 
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-6">
+  <div class="row d-flex justify-content-center">
+    <div class="col-sm-12 col-md-8 col-lg-8">
       <h1><%= @game.name %></h1>
       <h2><%= @game.rating %></h2>
     </div>
-  </div>
 
-  <% @game.screenshots.each do |screenshot| %>
-    <div>
-      <%= screenshot %>
+    <div class="col-sm-12 col-md-8 col-lg-8">
+      <% @game.screenshots.each do |screenshot| %>
+        <div>
+          <%= screenshot %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-  <div>
-    <%= @game.cover %>
-  </div>
 
-  <div>
-    <%= @game.videos %>
-  </div>
+    <div class="col-sm-12 col-md-8 col-lg-8">
+      <div>
+        <%= @game.cover %>
+      </div>
+    </div>
 
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-6">
+    <div class="col-sm-12 col-md-8 col-lg-8">
+      <% @game.videos.each do |video| %>
+        <div>
+          <%= video %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-sm-12 col-md-8 col-lg-8">
       <p>Platforms: <% @game.platforms.each do |platform| %>
             <%= platform %>
         <% end %> </p>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-6">
+    <div class="col-sm-12 col-md-8 col-lg-8">
       <p>Summary: <%= @game.summary %></p>
 
-      <p>Tags: <% @game.tag.each do |tag| %>
+      <p>Tags: <% @game.tags.each do |tag| %>
             <%= tag %>
         <% end %> </p>
 
@@ -43,6 +48,4 @@
       </div>
     </div>
   </div>
-
-
 </div>
