@@ -1,7 +1,9 @@
+<h1>Your Wishlist</h1>
+
 <% if @wishlists.empty? %>
 <p>No games added to wishlists yet</p>
 <% else %>
   <% @wishlists.each do |wishlist| %>
-   <%= wishlist.game.name %>
+   <%= render partial: 'wishlist-card', locals: {wishlist: wishlist} %>
   <% end %>
 <% end %>
