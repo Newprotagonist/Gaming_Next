@@ -1,1 +1,82 @@
 // Specific CSS for your home-page
+.homepage-background {
+  background-image: asset-url('banner.jpg');
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $light-gray;
+  flex-direction: column;
+}
+
+.homepage-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.homepage-h1 {
+  font-size: 6vw;
+  font-weight: bold;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin-bottom: 20px;
+  animation:
+    typing 0.75s steps(40, end),
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+
+
+.homepage-comments {
+  width: 85vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 20px;
+
+  & p {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+
+@media(max-width: 768px) {
+  .homepage-comments p {
+    font-size: 15px;
+  }
+
+  .homepage-comments .p2 {
+    font-size: 18px;
+  }
+}
+
+@media(min-width: 768px) and (max-width: 992px) {
+  .homepage-comments p {
+    font-size: 20px;
+  }
+
+  .homepage-comments .p2 {
+    font-size: 25px;
+  }
+}
+
+@media(min-width: 992px) {
+  .homepage-comments p {
+    font-size: 25px;
+  }
+
+  .homepage-comments .p2 {
+    font-size: 30px;
+  }
+}
