@@ -1,8 +1,9 @@
 require 'json'
 
 puts "Destroying all games..."
+start = Time.now
 Game.destroy_all
-puts "Games destroyed"
+puts "Games destroyed in #{Time.now - start}s"
 files = Dir.children(File.join(__dir__, "seeds/data")).sort_by { |f| f[/\d+/].to_i }
 n = 0
 start = Time.now
