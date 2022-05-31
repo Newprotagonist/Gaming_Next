@@ -1,1 +1,39 @@
 // Specific CSS for your home-page
+.homepage-background {
+  background-image: asset-url('banner.jpg');
+  // background-color: rgb(173, 121, 121);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $light-gray;
+}
+
+.homepage-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.homepage-h1 {
+  font-size: 6vw;
+  font-weight: bold;
+}
+
+.homepage-comments {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.padding {
+  padding: 15px 25px;
+}
