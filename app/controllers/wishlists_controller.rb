@@ -17,5 +17,6 @@ class WishlistsController < ApplicationController
     @wishlist = Wishlist.find(params[:id])
     authorize @wishlist
     @wishlist.destroy
+    redirect_to wishlists_path, status: :see_other
   end
 end
