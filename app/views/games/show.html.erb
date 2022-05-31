@@ -6,26 +6,20 @@
       <h2> Rating: <%= @game.rating %></h2>
     </div>
 
-    <div class="col-sm-12 col-md-8 col-lg-8">
-      <% @game.screenshots.each do |screenshot| %>
-        <%= image_tag screenshot, alt: "Game Screenshot", width: 200 %>
-      <% end %>
-    </div>
+    <% @game.screenshots.each do |screenshot| %>
+      <%= image_tag screenshot, alt: "Game Screenshot", width: 200 %>
+    <% end %>
 
-    <div class="col-sm-12 col-md-8 col-lg-8">
-      <%= image_tag @game.cover, alt: "Game cover", width: 200 %>
-    </div>
+    <%= image_tag @game.cover, alt: "Game cover", width: 200 %>
 
-    <div class="col-sm-12 col-md-8 col-lg-8">
-      <% @game.videos.each do |video| %>
-      <p><%= video %></p>
-        <iframe width="560" height="315"
-                src=<%= video %> title="YouTube video player"
-                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-        </iframe>
-      <% end %>
-    </div>
+    <% @game.videos.each do |video| %>
+    <p><%= video %></p>
+      <iframe width="560" height="315"
+              src=<%= video %> title="YouTube video player"
+              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
+    <% end %>
 
     <div class="col-sm-12 col-md-8 col-lg-8">
       <p>Platforms: <% @game.platforms.each do |platform| %>
