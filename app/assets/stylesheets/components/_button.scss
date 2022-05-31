@@ -15,6 +15,9 @@
 
 .button-dark-blue {
   background-color: $dark-blue;
+  &:hover {
+    background-color: $middle-blue;
+  }
 }
 
 .button-small {
