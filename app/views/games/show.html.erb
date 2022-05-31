@@ -3,28 +3,27 @@
   <div class="row d-flex justify-content-center">
     <div class="col-sm-12 col-md-8 col-lg-8">
       <h1><%= @game.name %></h1>
-      <h2><%= @game.rating %></h2>
+      <h2> Rating: <%= @game.rating %></h2>
     </div>
 
     <div class="col-sm-12 col-md-8 col-lg-8">
       <% @game.screenshots.each do |screenshot| %>
-        <div>
-          <%= screenshot %>
-        </div>
+        <%= image_tag screenshot, alt: "Game Screenshot", width: 200 %>
       <% end %>
     </div>
 
     <div class="col-sm-12 col-md-8 col-lg-8">
-      <div>
-        <%= @game.cover %>
-      </div>
+      <%= image_tag @game.cover, alt: "Game cover", width: 200 %>
     </div>
 
     <div class="col-sm-12 col-md-8 col-lg-8">
       <% @game.videos.each do |video| %>
-        <div>
-          <%= video %>
-        </div>
+      <p><%= video %></p>
+        <iframe width="560" height="315"
+                src=<%= video %> title="YouTube video player"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
       <% end %>
     </div>
 
@@ -42,10 +41,10 @@
         <% end %> </p>
 
       <div class="">
-        <%# <%= link_to "Add to Wishlist", index_path %> %>
-        <%# <%= link_to "See Wishlist", index_path %> %>
-        <%# <%= link_to "Return to Suggestions", index_path %> %>
+        <%# <%= link_to "Add to Wishlist", new_wishlist_bookmark_path(@user.wishlist) %> %>
+        <%# <%= link_to "See Wishlist", wishlist_path(@user.wishlist) %> %>
+        <%# <%= link_to "Return to Suggestions", here insert path for Suggestions once it's created  %> %>
       </div>
     </div>
-  </div>
+  </div>s
 </div>
