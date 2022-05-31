@@ -6,8 +6,9 @@ class WishlistsController < ApplicationController
   def create
     @wishlist = Wishlist.new
     @wishlist.user = current_user
+    @wishlist.game = Game.find(params[:game_id])
     authorize @wishlist
-    if @wislist.save
+    if @wishlist.save
       redirect_to wishlists_path
     end
   end

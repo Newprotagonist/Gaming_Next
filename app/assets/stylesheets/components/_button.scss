@@ -2,14 +2,19 @@
   background-color: $gray;
   color: $light-gray;
   padding: 12px;
+  margin: 5px;
+  width: fit-content;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+  text-decoration: none;
 
   &:hover {
     background-color: $dark-gray;
+    color: $light-gray;
+
   }
 }
 
