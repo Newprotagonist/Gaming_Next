@@ -1,4 +1,4 @@
-class WishlistController < ApplicationController
+class WishlistsController < ApplicationController
   def index
     @wishlists = policy_scope(Wishlist).where(user: current_user)
   end

@@ -1,0 +1,7 @@
+<% if @wishlists.empty? %>
+<p>No games added to wishlists yet</p>
+<% else %>
+  <% @wishlists.each do |wishlist| %>
+   <%= wishlist.game.name %>
+  <% end %>
+<% end %>
