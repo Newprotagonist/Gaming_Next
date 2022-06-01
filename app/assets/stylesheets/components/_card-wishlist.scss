@@ -7,6 +7,7 @@
   align-items: center;
   margin-bottom: 20px;
   position: relative;
+  width: calc(100% - 10%);
 }
 
 .card-product img {
@@ -29,7 +30,7 @@
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
+  padding: 10px;
 }
 
 .card-product i {
@@ -40,21 +41,20 @@
 
 .number {
   // height : 100px ;
-  // width: 200px;
+  width: 10%;
   background-color: $gray;
-  // border-radius: 5px 0px 0px 5px;
+  border-radius: 5px 0px 0px 5px;
   // // display: flex;
-  // // justify-content: center;
-  // // align-items: center;
-  // margin-bottom: 20px;
-  padding-left: 25px;
-  padding-right: 25px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .number p {
   margin : 0;
   color: white;
   font-size: 50px;
+  text-align: center;
 }
 
 .item-list {
@@ -81,6 +81,10 @@
       color: white;
     }
     p {
-      font-size: 30px;
+      font-size: 16px;
+    }
+    a {
+      color: white;
+      text-decoration: none;
     }
 }
