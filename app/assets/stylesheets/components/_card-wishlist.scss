@@ -42,15 +42,15 @@
   height : 100px ;
   width: 200px;
   background-color: $gray;
-  border-radius: 5px;
+  border-radius: 5px 0px 0px 5px;
   display: flex;
-  justify-content: left;
-  padding-left: 50px;
+  justify-content: center;
   align-items: center;
-  position: absolute;
-  top: 25px;
-  z-index: -1;
-  left: -100px;
+  margin-bottom: 20px;
+  // position: absolute;
+  // top: 25px;
+  // z-index: -1;
+  // left: -50px;
 }
 
 .number p {
@@ -62,4 +62,5 @@
 .item-list {
   display: flex;
   position: relative;
+  align-items: center;
 }

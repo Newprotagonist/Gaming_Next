@@ -4,9 +4,8 @@
 <p>No games added to wishlists yet</p>
 <% else %>
 <div class="container">
-    <% i = 0 %>
     <% @wishlists.each do |wishlist| %>
-      <%= render partial: 'wishlist-card', locals: {wishlist: wishlist, i: i} %>
+      <%= render partial: 'wishlist-card', locals: {wishlist: wishlist} %>
     <% end %>
 </div>
 <% end %>
