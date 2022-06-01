@@ -1,12 +1,13 @@
 .cards-container {
   display: flex;
   position: relative;
+  justify-content: space-evenly;
 }
 
 .game-cover {
   height: 450px;
   width: 300px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .game-card {
@@ -15,21 +16,24 @@
   margin: 15px;
 }
 
-.card-blur {
-  height: 100%;
-  width: 100%;
-  color: black;
-  opacity: 1;
-}
-
 .banner {
   padding-bottom: 180px;
 }
 
 .secret {
+  border-radius: 10px;
+  background-color: black;
   color: rgb(255, 255, 255);
   position: absolute;
-  bottom: 160px;
-  left: 85px;
+  left: 0px;
+  bottom: 0px;
   font-size: 30px;
+  height: 450px;
+  width: 300px;
+  opacity: 0;
+  padding-top: 150px;
+  &:hover {
+    opacity: 0.9;
+    transition: 1s;
+  }
 }
