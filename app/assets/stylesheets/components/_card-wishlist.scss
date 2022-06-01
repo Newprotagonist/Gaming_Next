@@ -39,14 +39,16 @@
 }
 
 .number {
-  height : 100px ;
-  width: 200px;
+  // height : 100px ;
+  // width: 200px;
   background-color: $gray;
-  border-radius: 5px 0px 0px 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
+  // border-radius: 5px 0px 0px 5px;
+  // // display: flex;
+  // // justify-content: center;
+  // // align-items: center;
+  // margin-bottom: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .number p {

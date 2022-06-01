@@ -5,10 +5,8 @@
 <% else %>
 <div class="container"
      data-controller="wishlist">
-     <ul id="wishlist">
       <% @wishlists.each do |wishlist| %>
         <%= render partial: 'wishlist-card', locals: {wishlist: wishlist} %>
       <% end %>
-    </ul>
 </div>
 <% end %>
