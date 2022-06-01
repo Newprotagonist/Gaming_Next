@@ -1,9 +1,10 @@
-
-<div class="item-list">
+<li>
+<div class="item-list" >
   <div class="number">
     <p><%= @i += 1 %></p>
   </div>
-  <div class="card-product">
+  <div class="card-product" draggable="true"
+      data-wishlist-id="<%= @i %>" >
     <%= image_tag "#{wishlist.game.cover}"%>
     <div class="card-product-infos">
       <h2><%= wishlist.game.name %></h2>
@@ -11,6 +12,15 @@
       <%= link_to wishlist_path(wishlist), data: {turbo_method: :delete, turbo_confirm: "Remove from wishlist ?"} do%>
         <i class="fa-solid fa-trash-can"></i>
       <% end %>
+      <div class="secret-wishlist">
+        <p><%= wishlist.game.rating.to_i %>/100</p>
+        <p><%= wishlist.game.tags.join(', ') %></p>
+        <p>See more</p>
+          <%= link_to wishlist_path(wishlist), data: {turbo_method: :delete, turbo_confirm: "Remove from wishlist ?"} do%>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
+      </div>
     </div>
   </div>
 </div>
+</li>
