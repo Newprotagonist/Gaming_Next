@@ -1,7 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar-display">
   <div class="container-fluid">
     <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "/app/assets/images/logo.png" %>
+      <%= image_tag "logo.png", class: "logo" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,6 +18,7 @@
             <%= link_to "Wishlish", wishlists_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
+            <%= image_tag "https://ca.slack-edge.com/T02NE0241-U03AXB75DS8-40f196fa5578-512", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
