@@ -62,6 +62,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_121925) do
     t.float "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "release_date"
+    t.string "developer"
+    t.string "franchise"
+    t.string "game_modes", array: true
   end
 
   create_table "users", force: :cascade do |t|
