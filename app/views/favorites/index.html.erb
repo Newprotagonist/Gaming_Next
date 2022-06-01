@@ -1,0 +1,30 @@
+<div class="page">
+  <div class="banner">
+    <div>
+      <%= form_with url: favorites_path, method: :get do |f| %>
+      <div>
+          <%= f.collection_select :game, @games, :id, :name, :include_blank => true  %>
+          <%= f.submit "Add game" %>
+      </div>
+      <% end %>
+    </div>
+    <div>
+  Submit
+  </div>
+  </div>
+  <div class="cards-container">
+    <% @favorites.each do |favorite| %>
+      <%= link_to game_path(favorite.game) do %>
+        <div class="game-card">
+          <div>
+            <%= image_tag "#{favorite.game.cover}", class: "game-cover"%>
+          </div>
+          <div class="secret">
+            <p><%= favorite.game.rating.to_i %>/100</p>
+            <p>See more</p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.button {
+  background-color: $gray;
+  color: $light-gray;
+  padding: 12px;
+  margin: 5px;
+  width: fit-content;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5%;
+  text-decoration: none;
+  font-weight: bold;
+
+  &:hover {
+    background-color: $dark-gray;
+    color: $light-gray;
+
+  }
+}
+
+.button-dark-blue {
+  background-color: $dark-blue;
+  box-shadow: 0 0 15px rgba(245, 245, 245, 0.4);
+  &:hover {
+    background-color: $middle-blue;
+  }
+}
+
+.button-small {
+  font-size: 25px;
+  padding: 5px;
+}
+
+.button-big {
+  font-size: 2vw;
+  padding: 1vw 1.5vw;
+}

@@ -1,2 +1,20 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% @disable_nav = true %>
+<% @disable_foot = true %>
+
+<div class="homepage-background">
+  <div class="homepage-box">
+    <h1 class="homepage-h1">Gaming Next</h1>
+    <p>You don’t know <strong>what to play ?</strong></p>
+    <p><strong>We got you !</strong></p>
+    <p>Just click on search, </p>
+    <p>follow the instructions, </p>
+    <p>and <strong>find the best game for you !</strong></p>
+
+    <%= link_to "Search", wishlists_path, class: "button button-dark-blue button-big" %>
+  </div>
+    <div class="homepage-comments">
+      <p><em>“Wow I need to buy this company !”</em>Ellon Musk </p>
+      <p class="p2"><em> “This is so clever, I’m proud of you !”</em>Dad</p>
+      <p><em>“Now, I’m never bored”</em>Some Dude</p>
+    </div>
+</div>

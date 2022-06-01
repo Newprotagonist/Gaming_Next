@@ -1,0 +1,45 @@
+<div class="container m-3">
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-sm-12 col-md-8 col-lg-8">
+      <h1><%= @game.name %></h1>
+      <h2> Rating: <%= @game.rating %></h2>
+    </div>
+
+    <% @game.screenshots.each do |screenshot| %>
+      <%= image_tag screenshot, alt: "Game Screenshot", width: 200 %>
+    <% end %>
+
+    <%= image_tag @game.cover, alt: "Game cover", width: 200 %>
+
+    <% if @game.videos != nil %>
+      <% @game.videos.each do |video| %>
+        <iframe width="560" height="315"
+                src=<%= video %> title="YouTube video player"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+      <% end %>
+    <% end %>
+
+    <div class="col-sm-12 col-md-8 col-lg-8">
+      <p>Platforms: <% @game.platforms.each do |platform| %>
+            <%= platform %>
+        <% end %> </p>
+    </div>
+
+    <div class="col-sm-12 col-md-8 col-lg-8">
+      <p>Summary: <%= @game.summary %></p>
+
+      <p>Tags: <% @game.tags.each do |tag| %>
+            <%= tag %>
+        <% end %> </p>
+
+      <div class="">
+        <%= link_to "Add to Wishlist", wishlists_path(game_id: @game.id), data: {turbo_method: :post },  class: "button" %>
+        <%= link_to "See Wishlist", wishlists_path, class: "button" %>
+        <%# <%= link_to "Return to Suggestions", here insert path for Suggestions once it's created  %> %>
+      </div>
+    </div>
+  </div>
+</div>
