@@ -1,6 +1,7 @@
 class WishlistsController < ApplicationController
   def index
     @wishlists = policy_scope(Wishlist).where(user: current_user)
+    @i = 0
   end
 
   def create
