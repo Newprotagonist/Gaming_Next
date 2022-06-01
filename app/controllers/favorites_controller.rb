@@ -1,6 +1,8 @@
 class FavoritesController < ApplicationController
   def index
     @favorites = policy_scope(Favorite)
+    @favorite = Favorite.new
+    @games = policy_scope(Game)
   end
 
   def create
