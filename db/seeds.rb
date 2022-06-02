@@ -18,6 +18,7 @@ def should_skip(game, tags)
 end
 
 User.create(
+  username: "Test",
   email: "test@test.com",
   password: "secret"
 )
