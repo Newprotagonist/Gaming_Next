@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :wishlists
   has_many :favorites
+
+  validates :username, presence: true
+  validates :username, uniqueness: true
+  validates :username, format: { with: /\A\w+\z/, message: "only allows letters, numbers and _" }
 end
