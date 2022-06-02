@@ -14,6 +14,17 @@ class WishlistsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    raise
+
+    @wishlist = Wishlist.find(params[:id])
+    authorize @wishlist
+    @wishlist.update(position: params[:position])
+  end
+
   def destroy
     @wishlist = Wishlist.find(params[:id])
     authorize @wishlist

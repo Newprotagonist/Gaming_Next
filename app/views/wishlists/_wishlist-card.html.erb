@@ -3,7 +3,7 @@
     <p><%= @i += 1 %></p>
   </div>
   <div class="card-product" draggable="true"
-      data-wishlist-id="<%= @i %>" >
+      data-wishlist-id="<%= @i %>" id="wishlist" >
     <%= link_to game_path(wishlist.game) do%>
     <%= image_tag "#{wishlist.game.cover}"%>
     <% end %>
