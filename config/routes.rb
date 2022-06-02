@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :favorites, only: %i[index create update destroy]
   resources :wishlists, only: %i[index create destroy]
   resources :games, only: :show
+  get 'suggestions', to: 'suggestions#index'
 end
