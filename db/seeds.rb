@@ -2,15 +2,14 @@ require 'json/ext'
 
 def build_tags(game)
   tags = []
-  tags += game["genres"]&.map { |element| element["name"] } || []
-  tags += game["themes"]&.map { |element| element["name"] } || []
-  tags += game["keywords"]&.map { |element| element["name"] } || []
+  tags += game["genres"]&.map { |element| element["name"].downcase }&.uniq || []
+  tags += game["themes"]&.map { |element| element["name"].downcase }&.uniq || []
+  tags += game["keywords"]&.map { |element| element["name"].downcase }&.uniq || []
   tags
 end
 
 def should_skip(game, tags)
   [
-    game["screenshots"],
     game["screenshots"],
     game["videos"],
     game["aggregated_rating"],
@@ -19,6 +18,7 @@ def should_skip(game, tags)
 end
 
 User.create(
+  username: "Test",
   email: "test@test.com",
   password: "secret"
 )
@@ -36,8 +36,12 @@ puts "Done in #{Time.now - start}s"
 puts "*******************************************************"
 puts "Parsing games..."
 start = Time.now
-games = JSON.load_file(File.join(__dir__, "seeds/data/games_first_half.json"))
-games += JSON.load_file(File.join(__dir__, "seeds/data/games_second_half.json"))
+if Rails.env == "production"
+  games = JSON.load_file(File.join(__dir__, "seeds/data/heroku_games.json"))
+else
+  games = JSON.load_file(File.join(__dir__, "seeds/data/games_first_half.json"))
+  games += JSON.load_file(File.join(__dir__, "seeds/data/games_second_half.json"))
+end
 puts "Done in #{Time.now - start}s"
 
 puts "*******************************************************"
@@ -45,11 +49,11 @@ n = 0
 skipped = 0
 puts "Creating games..."
 start = Time.now
-print "Created 0 games"
+print "Created games: 0"
 games.each do |game|
   tags = build_tags(game)
   if should_skip(game, tags)
-    skipped +=1
+    skipped += 1
     next
   end
   Game.create(

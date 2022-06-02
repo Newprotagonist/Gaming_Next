@@ -81,3 +81,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "acts-as-taggable-array-on", "~> 0.6.0"

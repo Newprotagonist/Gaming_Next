@@ -1,4 +1,5 @@
 class Game < ApplicationRecord
-  has_many :favorites
-  has_many :wishlists
+  has_many :favorites, dependent: :destroy
+  has_many :wishlists, dependent: :destroy
+  taggable_array :tags
 end
