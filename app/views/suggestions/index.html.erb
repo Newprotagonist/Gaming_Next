@@ -1,7 +1,5 @@
-<% @suggestions.each do |suggestion| %>
+<% @suggestions.flatten.each do |suggestion| %>
 <ul>
   <ol><%= suggestion.name %></ol>
 </ul>
 <% end %>
-
-<% console %>
