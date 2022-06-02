@@ -1,12 +1,10 @@
-<h1>Your Wishlist</h1>
-
-<% if @wishlists.empty? %>
-<p>No games added to wishlists yet</p>
-<% else %>
-<div class="container"
-     data-controller="wishlist">
-      <% @wishlists.each do |wishlist| %>
-        <%= render partial: 'wishlist-card', locals: {wishlist: wishlist} %>
-      <% end %>
+<div class="container">
+  <h1>Your Wishlist</h1>
+  <% if @wishlists.empty? %>
+    <p>No games added to wishlists yet</p>
+  <% else %>
+    <% @wishlists.each do |wishlist| %>
+      <%= render partial: 'wishlist-card', locals: {wishlist: wishlist} %>
+    <% end %>
+  <% end %>
 </div>
-<% end %>
