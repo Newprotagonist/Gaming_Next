@@ -1,8 +1,8 @@
 Arguments: 
-  /Users/newprotagonist/.nvm/versions/node/v16.13.1/bin/node /Users/newprotagonist/.nvm/versions/node/v16.13.1/bin/yarn add swiper@6 --save
+  /Users/vk/.nvm/versions/node/v16.13.1/bin/node /Users/vk/.nvm/versions/node/v16.13.1/bin/yarn add js-autocomplete
 
 PATH: 
-  ./bin:./node_modules/.bin:/Users/newprotagonist/.nvm/versions/node/v16.13.1/bin:/Users/newprotagonist/.rbenv/shims:/Users/newprotagonist/.rbenv/bin:/Users/newprotagonist/.pyenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
+  ./bin:./node_modules/.bin:/Users/vk/.nvm/versions/node/v16.13.1/bin:/Users/vk/.rbenv/shims:/Users/vk/.rbenv/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/vk/.pyenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
 
 Yarn version: 
   1.22.18
@@ -11,15 +11,15 @@ Node version:
   16.13.1
 
 Platform: 
-  darwin x64
+  darwin arm64
 
 Trace: 
-  SyntaxError: /Users/newprotagonist/code/Newprotagonist/Gaming_Next/package.json: Unexpected token < in JSON at position 195
+  SyntaxError: /Users/vk/code/vK-y0/Gaming_Next/package.json: Unexpected token < in JSON at position 195
       at JSON.parse (<anonymous>)
-      at /Users/newprotagonist/.nvm/versions/node/v16.13.1/lib/node_modules/yarn/lib/cli.js:1625:59
+      at /Users/vk/.nvm/versions/node/v16.13.1/lib/node_modules/yarn/lib/cli.js:1625:59
       at Generator.next (<anonymous>)
-      at step (/Users/newprotagonist/.nvm/versions/node/v16.13.1/lib/node_modules/yarn/lib/cli.js:310:30)
-      at /Users/newprotagonist/.nvm/versions/node/v16.13.1/lib/node_modules/yarn/lib/cli.js:321:13
+      at step (/Users/vk/.nvm/versions/node/v16.13.1/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /Users/vk/.nvm/versions/node/v16.13.1/lib/node_modules/yarn/lib/cli.js:321:13
 
 npm manifest: 
   {

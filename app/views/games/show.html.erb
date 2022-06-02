@@ -1,12 +1,12 @@
-
 <div>
   <h1><%= @game.name %></h1>
   <h2> Rating: <%= @game.rating %></h2>
 </div>
 <div data-controller="carousel" class="swiper-container w-1200 my-5"
     data-carousel-options-value='{
+    "loop": true,
     "pagination": { "el": ".swiper-pagination",
-                    "dynamicBullets": "true" },
+                    "dynamicBullets":  "true" },
     "navigation": { "nextEl": ".swiper-button-next",
                     "prevEl": ".swiper-button-prev"}}'>
   <div class="swiper-wrapper">
@@ -25,9 +25,9 @@
       <div class="swiper-slide"><%= image_tag screenshot, alt: "Game Screenshot" %></div>
     <% end %>
   </div>
-  <div class="swiper-pagination"></div>
   <div class="swiper-button-prev"></div>
   <div class="swiper-button-next"></div>
+  <div class="swiper-pagination"></div>
 </div>
 <div>
   <p>Platforms: <% @game.platforms.each do |platform| %>
@@ -45,19 +45,4 @@
   <%= link_to "Add to Wishlist", wishlists_path(game_id: @game.id), data: {turbo_method: :post },  class: "button" %>
   <%= link_to "See Wishlist", wishlists_path, class: "button" %>
   <%# <%= link_to "Return to Suggestions", here insert path for Suggestions once it's created  %>
-</div>
-
-
-
-
-
-<div data-controller="carousel" class="swiper-container w-25 my-5"
-    data-carousel-options-value='{
-    "pagination": { "el": ".swiper-pagination",
-                    "dynamicBullets": "true" },
-    "navigation": { "nextEl": ".swiper-button-next",
-                    "prevEl": ".swiper-button-prev"}}'>
-  <div class="swiper-pagination"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
 </div>
