@@ -2,16 +2,27 @@ class FavoritesController < ApplicationController
   def index
     @favorites = policy_scope(Favorite)
     @favorite = Favorite.new
-    @games = policy_scope(Game)
+    @games = []
+
+    if params[:query].present?
+      @games = Game.where('name ILIKE?', "%#{params[:query]}%").first(20)
+    end
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: "list", locals: { games: @games }, formats: [:html] }
+    end
   end
 
   def create
     @favorite = Favorite.new
+    @favorite.user = current_user
+    @favorite.game_id = params[:game_id]
     authorize @favorite
-    if @favorite.save(favorite_params)
-      redirect_to favorite_path
+    if @favorite.save
+      redirect_to favorites_path
     else
-      render favorite_path
+      render favorites_path
     end
   end
 

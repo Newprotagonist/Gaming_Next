@@ -1,0 +1,5 @@
+<% games.each do |game| %>
+  <li>
+     <%= link_to "#{game.name}" , favorites_path(game_id: game.id), data: {turbo_method: :post}%>
+  </li>
+<% end %>
