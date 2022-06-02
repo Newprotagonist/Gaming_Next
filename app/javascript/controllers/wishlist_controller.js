@@ -1,5 +1,4 @@
 import { Controller } from "@hotwired/stimulus"
-import Sortable from 'sortablejs'
 
 // Connects to data-controller="wishlist"
 export default class extends Controller {
