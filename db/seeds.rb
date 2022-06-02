@@ -2,15 +2,14 @@ require 'json/ext'
 
 def build_tags(game)
   tags = []
-  tags += game["genres"]&.map { |element| element["name"].downcase } || []
-  tags += game["themes"]&.map { |element| element["name"].downcase } || []
-  tags += game["keywords"]&.map { |element| element["name"].downcase } || []
-  tags.uniq
+  tags += game["genres"]&.map { |element| element["name"].downcase }&.uniq || []
+  tags += game["themes"]&.map { |element| element["name"].downcase }&.uniq || []
+  tags += game["keywords"]&.map { |element| element["name"].downcase }&.uniq || []
+  tags
 end
 
 def should_skip(game, tags)
   [
-    game["screenshots"],
     game["screenshots"],
     game["videos"],
     game["aggregated_rating"],
@@ -45,11 +44,11 @@ n = 0
 skipped = 0
 puts "Creating games..."
 start = Time.now
-print "Created 0 games"
+print "Created games: 0"
 games.each do |game|
   tags = build_tags(game)
   if should_skip(game, tags)
-    skipped +=1
+    skipped += 1
     next
   end
   Game.create(
