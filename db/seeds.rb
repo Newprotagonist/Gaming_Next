@@ -36,8 +36,12 @@ puts "Done in #{Time.now - start}s"
 puts "*******************************************************"
 puts "Parsing games..."
 start = Time.now
-games = JSON.load_file(File.join(__dir__, "seeds/data/games_first_half.json"))
-games += JSON.load_file(File.join(__dir__, "seeds/data/games_second_half.json"))
+if Rails.env == "production"
+  games = JSON.load_file(File.join(__dir__, "seeds/data/heroku_games.json"))
+else
+  games = JSON.load_file(File.join(__dir__, "seeds/data/games_first_half.json"))
+  games += JSON.load_file(File.join(__dir__, "seeds/data/games_second_half.json"))
+end
 puts "Done in #{Time.now - start}s"
 
 puts "*******************************************************"
