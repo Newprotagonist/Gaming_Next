@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Our suggestions for you</h1>
+  <h2>We found <%= @suggestions.size %> games</h2>
+  <% @suggestions.each do |suggestion| %>
+    <div class="card-product">
+        <%= link_to game_path(suggestion) do %>
+        <%= image_tag "#{suggestion.cover}"%>
+        <% end %>
+        <div class="card-product-infos">
+          <h2><%= suggestion.name %></h2>
+            <p><%= truncate(suggestion.summary, length: 500, separator: ". ") %></p>
+                <%= link_to game_path(suggestion) do %>
+          <div class="secret-wishlist">
+            <p><%= suggestion.rating.to_i %>/100</p>
+            <p><%= suggestion.platforms.join(', ') %></p>
+            <p>Because you liked : <%= (suggestion.tags & @tags).join(", ") %></p>
+            <p>See more</p>
+          </div>
+              <% end %>
+        </div>
+    </div>
+  <% end %>
+</div>

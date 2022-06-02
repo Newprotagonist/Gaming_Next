@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_01_121925) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_02_111708) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_121925) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_favorites_on_game_id"
+    t.index ["user_id", "game_id"], name: "index_favorites_on_user_id_and_game_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
@@ -66,6 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_121925) do
     t.string "developer"
     t.string "franchise"
     t.string "game_modes", array: true
+    t.index ["tags"], name: "index_games_on_tags", using: :gin
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,8 +78,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_121925) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   create_table "wishlists", force: :cascade do |t|
@@ -86,6 +90,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_121925) do
     t.datetime "updated_at", null: false
     t.bigint "game_id", null: false
     t.index ["game_id"], name: "index_wishlists_on_game_id"
+    t.index ["user_id", "game_id"], name: "index_wishlists_on_user_id_and_game_id", unique: true
     t.index ["user_id"], name: "index_wishlists_on_user_id"
   end
 

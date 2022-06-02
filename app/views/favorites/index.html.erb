@@ -17,15 +17,7 @@
   <div class="cards-container">
     <% @favorites.each do |favorite| %>
       <%= link_to game_path(favorite.game) do %>
-        <div class="game-card">
-          <div>
-            <%= image_tag "#{favorite.game.cover}", class: "game-cover"%>
-          </div>
-          <div class="secret">
-            <p><%= favorite.game.rating.to_i %>/100</p>
-            <p>See more</p>
-          </div>
-        </div>
+        <%= render partial: "game", locals: { game: favorite.game} %>
       <% end %>
     <% end %>
   </div>
