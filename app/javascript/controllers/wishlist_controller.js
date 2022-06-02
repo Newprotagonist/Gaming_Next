@@ -5,6 +5,7 @@ export default class extends Controller {
 
   connect() {
     console.log("hello you")
+    this.dragstart()
   }
 
   dragstart() {
