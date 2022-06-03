@@ -71,8 +71,8 @@ games.each do |game|
     franchise: game&.dig("franchise", "name"),
     franchises: game&.dig("franchises")&.pluck("name") ,
     game_modes: game["game_modes"]&.pluck("name"),
-    genres: game&.dig("genres")&.pluck("name"),
-    themes: game&.dig("themes")&.pluck("name"),
+    genres: game&.dig("genres")&.pluck("name") || [],
+    themes: game&.dig("themes")&.pluck("name") || [],
     tags: tags
   )
   n += 1
