@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
     @games = []
 
     if params[:query].present?
-      @games = Game.where('name ILIKE?', "%#{params[:query]}%").first(20)
+      @games = Game.where('name ILIKE?', "%#{params[:query]}%").first(10)
     end
 
     respond_to do |format|
@@ -34,6 +34,13 @@ class FavoritesController < ApplicationController
     else
       render favorite_path
     end
+  end
+
+  def destroy
+    @favorite = Favorite.find(params[:id])
+    authorize @favorite
+    @favorite.destroy
+    redirect_to favorites_path, status: :see_other
   end
 
   private
