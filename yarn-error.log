@@ -1,8 +1,5 @@
 Arguments: 
-  /Users/tim/.nvm/versions/node/v16.13.1/bin/node /Users/tim/.yarn/bin/yarn.js add sortablejs
-
-PATH: 
-  /Users/tim/.yarn/bin:/Users/tim/.config/yarn/global/node_modules/.bin:./bin:./node_modules/.bin:/Users/tim/.nvm/versions/node/v16.13.1/bin:/Users/tim/.rbenv/shims:/Users/tim/.rbenv/bin:/Users/tim/.pyenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/Apple/usr/bin:/Users/tim/.yarn/bin:/Users/tim/.config/yarn/global/node_modules/.bin:./bin:./node_modules/.bin:/Users/tim/.nvm/versions/node/v16.13.1/bin:/Users/tim/.rbenv/shims:/Users/tim/.rbenv/bin:/Users/tim/.pyenv/bin:/usr/local/sbin:/usr/local/sbin
+  /Users/vk/.nvm/versions/node/v16.13.1/bin/node /Users/vk/.nvm/versions/node/v16.13.1/bin/yarn add js-autocomplete
 
 Yarn version: 
   1.22.19
@@ -11,18 +8,17 @@ Node version:
   16.13.1
 
 Platform: 
-  darwin x64
+  darwin arm64
 
 Trace: 
-  SyntaxError: Invalid value type 738:24 in /Users/tim/code/timperoulakis/Gaming_Next/yarn.lock
-      at Parser.unexpected (/Users/tim/.yarn/lib/cli.js:63491:11)
-      at Parser.parse (/Users/tim/.yarn/lib/cli.js:63619:16)
-      at parse (/Users/tim/.yarn/lib/cli.js:63696:21)
-      at module.exports.exports.default (/Users/tim/.yarn/lib/cli.js:63258:96)
-      at Function.<anonymous> (/Users/tim/.yarn/lib/cli.js:3068:63)
+
+  SyntaxError: /Users/vk/code/vK-y0/Gaming_Next/package.json: Unexpected token < in JSON at position 195
+      at JSON.parse (<anonymous>)
+      at /Users/vk/.nvm/versions/node/v16.13.1/lib/node_modules/yarn/lib/cli.js:1625:59
       at Generator.next (<anonymous>)
-      at step (/Users/tim/.yarn/lib/cli.js:310:30)
-      at /Users/tim/.yarn/lib/cli.js:321:13
+      at step (/Users/vk/.nvm/versions/node/v16.13.1/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /Users/vk/.nvm/versions/node/v16.13.1/lib/node_modules/yarn/lib/cli.js:321:13
+
 
 npm manifest: 
   {

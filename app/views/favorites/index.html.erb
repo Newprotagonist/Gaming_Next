@@ -1,16 +1,18 @@
 <div class="page">
-  <div class="banner">
-    <div>
-      <%= form_with url: favorites_path, method: :get do |f| %>
-      <div>
-          <%= f.collection_select :game, @games, :id, :name, :include_blank => true  %>
-          <%= f.submit "Add game" %>
-      </div>
+  <div class="searchbarcontainer">
+    <div data-controller="searchbar">
+      <%= form_with url: favorites_path, method: :get, html: {class: "mb-4", data: {searchbar_target: "form"}} do |f| %>
+      <%= f.text_field :query,
+                      class: "form-control searchbar",
+                      placeholder: "Search for your favorite game !",
+                      value: params[:query],
+                      data: {searchbar_target: "input",
+                      action: "keyup->searchbar#update"} %>
       <% end %>
+      <ul data-searchbar-target="list" class="searchbarlist">
+        <%= render 'list', games: @games %>
+      </ul>
     </div>
-    <div>
-  Submit
-  </div>
   </div>
   <div class="cards-container">
     <% @favorites.each do |favorite| %>
