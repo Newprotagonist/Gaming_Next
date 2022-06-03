@@ -27,8 +27,23 @@
   top: 10px;
 }
 
+.instructions {
+  color: $dark-gray;
+  text-align: center;
+  font-size: 20px;
+}
+
 .banner {
   padding-bottom: 180px;
+}
+
+.game-link {
+  text-decoration: none;
+  color: $light-gray;
+  &:hover {
+    color: $light-gray;
+    text-decoration: none;
+  }
 }
 
 .secret {

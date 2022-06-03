@@ -1,6 +1,7 @@
 <div class="page">
   <div class="searchbarcontainer">
     <div data-controller="searchbar">
+      <p class="instructions">Add your favorites games below, then click on the button to see the games found by our algorithm !</p>                        
       <%= form_with url: favorites_path, method: :get, html: { class: "mt-5", autocomplete: "off", data: {searchbar_target: "form"}} do |f| %>
       <%= f.text_field :query,
                       class: "form-control searchbar",
@@ -9,6 +10,7 @@
                       data: {searchbar_target: "input",
                       action: "keyup->searchbar#update"} %>
       <% end %>
+      <div class="d-flex justify-content-center"><%= link_to "Suggested for me", suggestions_path, class: "button" %></div>
       <ul data-searchbar-target="list" class="searchbarlist">
         <%= render 'list', games: @games %>
       </ul>

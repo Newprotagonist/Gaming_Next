@@ -37,13 +37,11 @@
         <p></p>
         <p><%= @game.summary %></p>
         <div class="d-flex justify-content-center">
-          <%= link_to "Add to Wishlist", wishlists_path(game_id: @game.id), data: {turbo_method: :post },  class: "button" %>
-          <%= link_to "See Wishlist", wishlists_path, class: "button" %>
+          <%= link_to "Add to wishlist", wishlists_path(game_id: @game.id), data: {turbo_method: :post }, class: "button" %>
+          <%= link_to "Add to favorites", favorites_path(game_id: @game.id), data: {turbo_method: :post}, class: "button" %>
         </div>
-        <p>
-          <i class="fa-solid fa-heart"></i> <strong><%= rand(100..10000) %></strong>
-          <i class="fa-solid fa-cart-shopping"></i> <strong><%= rand(100..10000) %></strong>
-        </p>
+        <p><i class="fa-solid fa-heart"></i> Added <strong><%= rand(100..10000) %></strong> times to favorites.</p>
+        <p><i class="fa-solid fa-clipboard-list"></i> Added <strong><%= rand(100..10000) %></strong> times to wislists.</p>
       </div>
       <div class= "col-12 show-infos">
         <div class="row">
@@ -71,7 +69,7 @@
           </ul>
         </div>
         <div class="d-flex justify-content-center col-12">
-          <%= link_to "Return to Suggestions", suggestions_path, class: "button" %>
+          <%= link_to "Return to Suggestions", suggestions_path, class: "button mb-2" %>
         </div>
       </div>
 </div>
