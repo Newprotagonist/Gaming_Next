@@ -2,9 +2,9 @@ require 'json/ext'
 
 def build_tags(game)
   tags = []
-  tags += game["genres"]&.map { |element| element["name"].downcase } || []
-  tags += game["themes"]&.map { |element| element["name"].downcase } || []
-  tags += game["keywords"]&.map { |element| element["name"].downcase } || []
+  tags += game["genres"]&.map { |element| element["name"].downcase }&.uniq || []
+  tags += game["themes"]&.map { |element| element["name"].downcase }&.uniq || []
+  tags += game["keywords"]&.map { |element| element["name"].downcase }&.uniq || []
   tags
 end
 
@@ -12,7 +12,8 @@ def should_skip(game, tags)
   [
     game["screenshots"],
     game["videos"],
-    game["aggregated_rating"]
+    game["aggregated_rating"],
+    tags
   ].any?(&:blank?)
 end
 
