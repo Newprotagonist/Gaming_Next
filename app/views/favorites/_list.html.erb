@@ -1,5 +1,5 @@
 <% games.each do |game| %>
   <li>
-     <%= link_to "#{game.name}" , favorites_path(game_id: game.id), data: {turbo_method: :post}%>
+     <%= link_to favorites_path(game_id: game.id), data: {turbo_method: :post} do %><i class="fa-<%= (game.favorite?(current_user)) ? "solid" : "regular" %> fa-heart"></i><% end %> | <%= link_to "#{game.name}", game_path(game) %>
   </li>
 <% end %>
