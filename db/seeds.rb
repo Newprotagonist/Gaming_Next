@@ -69,10 +69,10 @@ games.each do |game|
     release_date: game.key?("first_release_date") ? Time.at(game["first_release_date"]).to_datetime : nil,
     developer: game["involved_companies"]&.find { |company| company["developer"] }&.dig("company", "name"),
     franchise: game&.dig("franchise", "name"),
-    franchises: game&.dig("franchises")&.pluck("name") ,
+    franchises: game&.dig("franchises")&.pluck("name"),
     game_modes: game["game_modes"]&.pluck("name"),
-    genres: game&.dig("genres")&.pluck("name"),
-    themes: game&.dig("themes")&.pluck("name"),
+    genres: game&.dig("genres")&.pluck("name") || [],
+    themes: game&.dig("themes")&.pluck("name") || [],
     tags: tags
   )
   n += 1
