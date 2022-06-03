@@ -1,8 +1,9 @@
-<div class="game-card">
-  <div>
-    <%= image_tag "#{game.cover}", class: "game-cover"%>
-  </div>
-  <div class="secret">
+<div class="game-cover"
+     style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= game.cover %>)">
+  <%= link_to favorite_path(favorite), data: {turbo_method: :delete, turbo_confirm: "Remove from favorites ?"} do %>
+    <i class="fa-solid fa-trash-can game-trash-can"></i>
+  <% end %>
+  <div class="centered-text">
     <p><%= game.rating.to_i %>/100</p>
     <p>See more</p>
   </div>

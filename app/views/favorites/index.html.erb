@@ -14,11 +14,15 @@
       </ul>
     </div>
   </div>
-  <div class="cards-container">
-    <% @favorites.each do |favorite| %>
-      <%= link_to game_path(favorite.game) do %>
-        <%= render partial: "game", locals: { game: favorite.game} %>
+  <div class="cards-container container">
+    <div class="row">
+      <% @favorites.each do |favorite| %>
+        <div class="col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center">
+          <%= link_to game_path(favorite.game) do %>
+            <%= render partial: "game", locals: { game: favorite.game, favorite: favorite } %>
+          <% end %>
+        </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
