@@ -6,15 +6,37 @@
  width: 600px;
  display: flex;
  margin: 0 auto;
+ height: 200px;
+ z-index: 11;
+ position: relative;
+
 }
 
 .searchbarlist {
   list-style: none;
-  background-color: beige;
+  background-color: white;
   width: 600px;
+  margin-bottom: 150px;
+  border-radius: 0 0 5px 5px;
+  padding-left: 3px;
+  padding-right: 3px;
 
   a {
     text-decoration: none;
     color: black;
   }
+
+  li:hover {
+    transition: 0.2s;
+    color: white;
+      background-color: black;
+
+    a {
+      transition: 0.3s;
+      color: white;
+      background-color: black;
+
+    }
+  }
+
 }

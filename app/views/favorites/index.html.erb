@@ -1,7 +1,7 @@
 <div class="page">
   <div class="searchbarcontainer">
     <div data-controller="searchbar">
-      <%= form_with url: favorites_path, method: :get, html: {class: "mb-4", data: {searchbar_target: "form"}} do |f| %>
+      <%= form_with url: favorites_path, method: :get, html: { class: "mt-5", autocomplete: "off", data: {searchbar_target: "form"}} do |f| %>
       <%= f.text_field :query,
                       class: "form-control searchbar",
                       placeholder: "Search for your favorite game !",
