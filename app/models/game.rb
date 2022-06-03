@@ -6,4 +6,8 @@ class Game < ApplicationRecord
   def favorite?(user)
     user.favorites&.map(&:game)&.include? self
   end
+
+  def wishlist?(user)
+    user.wishlists&.map(&:game)&.include? self
+  end
 end
