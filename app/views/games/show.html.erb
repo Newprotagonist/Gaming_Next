@@ -21,6 +21,7 @@
         </div>
         <% end %>
       <% end %>
+      <% end %>
       <% @game.screenshots.each do |screenshot| %>
         <div class="swiper-slide"><%= image_tag screenshot, alt: "Game Screenshot" %></div>
       <% end %>
@@ -41,9 +42,6 @@
     </p>
     <% end %>
   </div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-button-next"></div>
-  <div class="swiper-pagination"></div>
 </div>
 <div>
   <p>Platforms: <% @game.platforms.each do |platform| %>
