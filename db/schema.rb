@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_02_111708) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_03_053653) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,6 +67,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_02_111708) do
     t.string "developer"
     t.string "franchise"
     t.string "game_modes", array: true
+    t.string "genres", default: [], array: true
+    t.string "franchises", default: [], array: true
+    t.string "themes", default: [], array: true
     t.index ["tags"], name: "index_games_on_tags", using: :gin
   end
 
