@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
     @games = []
 
     if params[:query].present?
-      @games = Game.where('name ILIKE?', "%#{params[:query]}%").first(20)
+      @games = Game.where('name ILIKE?', "%#{params[:query]}%").first(10)
     end
 
     respond_to do |format|
