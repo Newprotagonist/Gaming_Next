@@ -15,14 +15,16 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = Favorite.new
-    @favorite.user = current_user
-    @favorite.game_id = params[:game_id]
-    authorize @favorite
-    if @favorite.save
-      redirect_to favorites_path
+    if Game.find(params[:game_id]).favorite?(current_user)
+      params[:id] = current_user.favorites.find_by_game_id(params[:game_id]).id
+      destroy
     else
-      render favorites_path
+      @favorite = Favorite.new
+      @favorite.user = current_user
+      @favorite.game_id = params[:game_id]
+      authorize @favorite
+      @favorite.save
+      redirect_to favorites_path
     end
   end
 
