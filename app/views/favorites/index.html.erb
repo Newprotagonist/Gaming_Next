@@ -17,7 +17,7 @@
   <div class="cards-container">
     <% @favorites.each do |favorite| %>
       <%= link_to game_path(favorite.game) do %>
-        <%= render partial: "game", locals: { game: favorite.game} %>
+        <%= render partial: "game", locals: { game: favorite.game, favorite: favorite } %>
       <% end %>
     <% end %>
   </div>
