@@ -2,6 +2,7 @@
   <h1 class="text-center">Our suggestions for you</h1>
   <!---<h2>We found <%= @suggestions.size %> games</h2>-->
   <div class="d-flex flex-column align-items-center">
+    <%= "Please add some games to your favorites" if @suggestions.empty?%>
     <% @suggestions.each do |suggestion| %>
       <div class="card-product">
           <%= link_to game_path(suggestion) do %>
