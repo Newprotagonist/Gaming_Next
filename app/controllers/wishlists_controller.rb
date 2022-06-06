@@ -1,6 +1,6 @@
 class WishlistsController < ApplicationController
   def index
-    @wishlists = policy_scope(Wishlist)
+    @wishlists = policy_scope(Wishlist).order(sort: :asc)
     @i = 0
   end
 
@@ -14,16 +14,14 @@ class WishlistsController < ApplicationController
     end
   end
 
-  def edit
+def order
+  params[:list_items_attributes].split(",").each_with_index do |id, index|
+    wishlist = Wishlist.find(id)
+    wishlist.sort = index
+    authorize wishlist
+    wishlist.save!
   end
-
-  def update
-    raise
-
-    @wishlist = Wishlist.find(params[:id])
-    authorize @wishlist
-    @wishlist.update(position: params[:position])
-  end
+end
 
   def destroy
     @wishlist = Wishlist.find(params[:id])

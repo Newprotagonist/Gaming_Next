@@ -14,6 +14,10 @@ class WishlistPolicy < ApplicationPolicy
     true
   end
 
+  def order?
+    record.user == user
+  end
+
   def destroy?
     record.user == user
   end
