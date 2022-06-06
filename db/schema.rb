@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_06_083647) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_06_093220) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -93,6 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_083647) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "game_id", null: false
+    t.integer "sort", default: 0
     t.index ["game_id"], name: "index_wishlists_on_game_id"
     t.index ["user_id", "game_id"], name: "index_wishlists_on_user_id_and_game_id", unique: true
     t.index ["user_id"], name: "index_wishlists_on_user_id"
