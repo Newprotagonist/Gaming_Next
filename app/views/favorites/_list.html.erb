@@ -1,22 +1,22 @@
 <% games.each do |game| %>
   <li>
     <% if game.favorite?(current_user) %>
+      <%= link_to "#{game.name}", game_path(game) %> |
       <%= link_to favorite_path(
         current_user.favorites.find_by_game_id(game.id),
         query: params[:query]
         ),
-        data: {turbo_method: :delete} do %>
-          <i class="fa-solid fa-heart"></i>
+        data: {turbo_method: :delete}, class:"remove" do %>
+          <i class="fa-solid fa-heart remove"></i> Remove
         <% end %>
-        | <%= link_to "#{game.name}", game_path(game) %>
     <% else %>
+      <%= link_to "#{game.name}", game_path(game) %> |
       <%= link_to favorites_path(
           game_id: game.id, query: params[:query]
           ),
-          data: {turbo_method: :post} do %>
-            <i class="fa-regular fa-heart"></i>
+          data: {turbo_method: :post}, class:"add" do %>
+            <i class="fa-solid fa-heart add"></i> Add
           <% end %>
-          | <%= link_to "#{game.name}", game_path(game) %>
     <% end %>
   </li>
 <% end %>

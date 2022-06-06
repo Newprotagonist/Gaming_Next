@@ -6,7 +6,7 @@
  width: 600px;
  display: flex;
  margin: 0 auto;
- height: 200px;
+ height: 90px;
  z-index: 11;
  position: relative;
 
@@ -19,7 +19,7 @@
   list-style: none;
   background-color: white;
   width: 600px;
-  margin-bottom: 100px;
+  // margin-bottom: 100px;
   border-radius: 0 0 5px 5px;
   padding-left: 3px;
   padding-right: 3px;
@@ -29,17 +29,34 @@
     color: black;
   }
 
-  li:hover {
-    transition: 0.2s;
-    color: white;
-      background-color: black;
-
-    a {
-      transition: 0.3s;
-      color: white;
-      background-color: black;
-
-    }
+  li {
+    margin-bottom: 3px;
+    margin-top: 3px;
+    padding: 2px;
+    border-bottom: solid 0.5px;
   }
+}
 
+.add {
+  i {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    color: white;
+  }
+}
+
+.remove:hover {
+  i{
+    transition: 0.3s;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    color: white;
+  }
+}
+
+.add:hover {
+  i{
+    transition: 0.3s;
+    color: black;
+  }
 }

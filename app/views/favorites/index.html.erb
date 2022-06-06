@@ -1,6 +1,6 @@
-<div class="page">
+<div class="page" data-controller="searchbar" data-action="click->searchbar#close">
   <div class="searchbarcontainer">
-    <div data-controller="searchbar">
+    <div data-searchbar-target="searchdiv">
       <div class="d-flex justify-content-center">
         <%= form_with url: favorites_path, method: :get, html: { class: "m-2", autocomplete: "off", data: {searchbar_target: "form"}} do |f| %>
         <%= f.text_field :query,
