@@ -2,7 +2,7 @@ class FavoritePolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      scope.where(user: current_user)
+      scope.where(user: user).order(created_at: :desc)
     end
   end
 
@@ -15,7 +15,7 @@ class FavoritePolicy < ApplicationPolicy
   end
 
   def create?
-    record.user == user
+    true
   end
 
   def destroy?

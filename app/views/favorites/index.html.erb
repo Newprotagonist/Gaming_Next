@@ -1,29 +1,27 @@
 <div class="page">
-  <div class="banner">
-    <div>
-      <%= form_with url: favorites_path, method: :get do |f| %>
-      <div>
-          <%= f.collection_select :game, @games, :id, :name, :include_blank => true  %>
-          <%= f.submit "Add game" %>
+  <div class="searchbarcontainer">
+    <div data-controller="searchbar">
+      <p class="instructions">Add your favorites games below, then click on the button to see the games found by our algorithm !</p>
+      <div class="d-flex justify-content-center">
+        <%= form_with url: favorites_path, method: :get, html: { class: "m-2", autocomplete: "off", data: {searchbar_target: "form"}} do |f| %>
+        <%= f.text_field :query,
+                        class: "form-control searchbar",
+                        placeholder: "Search for your favorite game !",
+                        value: params[:query],
+                        data: {searchbar_target: "input",
+                        action: "keyup->searchbar#update"} %>
+        <% end %>
+        <%= link_to "Suggested for me", suggestions_path, class: "button button-small" %>
       </div>
-      <% end %>
+      <ul data-searchbar-target="list" class="searchbarlist">
+        <%= render 'list', games: @games %>
+      </ul>
     </div>
-    <div>
-  Submit
-  </div>
   </div>
   <div class="cards-container">
     <% @favorites.each do |favorite| %>
       <%= link_to game_path(favorite.game) do %>
-        <div class="game-card">
-          <div>
-            <%= image_tag "#{favorite.game.cover}", class: "game-cover"%>
-          </div>
-          <div class="secret">
-            <p><%= favorite.game.rating.to_i %>/100</p>
-            <p>See more</p>
-          </div>
-        </div>
+        <%= render partial: "game", locals: { game: favorite.game, favorite: favorite } %>
       <% end %>
     <% end %>
   </div>

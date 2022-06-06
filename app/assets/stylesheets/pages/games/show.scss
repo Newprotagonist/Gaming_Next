@@ -1,12 +1,32 @@
 .swiper-slide {
-  height: 500px;
+  height: 400px;
+  width: 600px;
   display: flex;
   align-items:center;
   justify-content: center;
 
   img {
-    height: 700px;
-    width: 1200px;
+    height: 350px;
+    width: 600px;
   }
 }
 
+.show-summary {
+  font-size: 16px;
+  text-align: center;
+}
+
+.show-infos {
+  text-align: center;
+  ul {
+    list-style-type: none;
+  }
+  li {
+    display: inline;
+    margin-right: 5px;
+  }
+}
+
+.title-show {
+  text-align: center;
+}

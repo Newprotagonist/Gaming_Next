@@ -1,7 +1,10 @@
 .cards-container {
   display: flex;
   position: relative;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 1;
+  position: relative;
 }
 
 .game-cover {
@@ -16,8 +19,32 @@
   margin: 15px;
 }
 
+.game-trash-can {
+  color: $light-gray;
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.instructions {
+  color: $dark-gray;
+  text-align: center;
+  font-size: 20px;
+}
+
 .banner {
   padding-bottom: 180px;
+}
+
+
+.game-link {
+  text-decoration: none;
+  color: $light-gray;
+  &:hover {
+    color: $light-gray;
+    text-decoration: none;
+  }
 }
 
 .secret {

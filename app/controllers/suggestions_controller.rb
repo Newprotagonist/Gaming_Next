@@ -1,18 +1,15 @@
 class SuggestionsController < ApplicationController
   def index
     skip_policy_scope
-    @suggestions = Game.where(id: 390)
-    @favorites = Favorite.all.where(user: current_user)
-    @games_id = @favorites.map { |favorite| favorite.game_id }
-    @tags = (@games_id.map { |game_id| Game.find(game_id).tags }).flatten
-    @suggestions = []
-    @tags.each do |tag|
-      @suggestions << Game.where("'#{tag}' = ANY (tags)")
-    end
-    @suggestions = @suggestions.flatten.map.uniq
-    @suggestions = @suggestions.select do |suggestion|
-      match = suggestion.tags & @tags
-      match.count > (@tags.count / 2)
-    end
+    fav_games = current_user.favorites.map(&:game)
+    @genres = fav_games.pluck(:genres).flatten
+    @themes = fav_games.pluck(:themes).flatten
+    @tags = fav_games.pluck(:tags).flatten
+    @suggestions = Game.with_any_tags(@genres.map(&:downcase) + @themes.map(&:downcase)).where.not("franchises && ARRAY[?]::varchar[]", fav_games.pluck(:franchises).flatten).to_a
+    fav_games.each { |game| @suggestions.delete(game) }
+    # @suggestions = @suggestions.flatten.uniq.select do |suggestion|
+    #   (suggestion.tags & tags).size > suggestion.tags.size / 1.5
+    # end
+    @suggestions = @suggestions.sort_by { |game| -(game.tags & @tags).size.fdiv((game.tags + @tags).uniq.size) }.first(20)
   end
 end

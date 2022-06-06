@@ -42,7 +42,7 @@
 .number {
   // height : 100px ;
   width: 10%;
-  background-color: $gray;
+  background-color: $dark-blue;
   border-radius: 5px 0px 0px 5px;
   // // display: flex;
   justify-content: center;
@@ -82,10 +82,14 @@
       color: white;
     }
     p {
-      font-size: 16px;
+      font-size: 14px;
     }
     a {
       color: white;
       text-decoration: none;
     }
+}
+
+.wishlist-title {
+  text-align: center;
 }
