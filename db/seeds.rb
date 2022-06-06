@@ -17,6 +17,10 @@ def should_skip(game, tags)
   ].any?(&:blank?)
 end
 
+def get_store(game)
+
+end
+
 unless User.find_by_email("test@test.com")
   User.create(
     username: "Test",
@@ -73,7 +77,8 @@ games.each do |game|
     game_modes: game["game_modes"]&.pluck("name"),
     genres: game&.dig("genres")&.pluck("name") || [],
     themes: game&.dig("themes")&.pluck("name") || [],
-    tags: tags
+    tags: tags,
+    slug: game["slug"]
   )
   n += 1
   print "\rCreated games: #{n.to_s.rjust(5)}"
