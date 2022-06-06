@@ -11,5 +11,6 @@ class SuggestionsController < ApplicationController
     #   (suggestion.tags & tags).size > suggestion.tags.size / 1.5
     # end
     @suggestions = @suggestions.sort_by { |game| -(game.tags & @tags).size.fdiv((game.tags + @tags).uniq.size) }.first(20)
+    # @suggestions = @suggestions.sort_by { |game| -game.rating }
   end
 end

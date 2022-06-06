@@ -3,19 +3,19 @@
   <!---<h2>We found <%= @suggestions.size %> games</h2>-->
   <div class="d-flex flex-column align-items-center">
     <%= "Please add some games to your favorites" if @suggestions.empty?%>
-    <% @suggestions.each do |suggestion| %>
+    <% @suggestions.each_with_index do |suggestion, index| %>
       <div class="card-product">
           <%= link_to game_path(suggestion) do %>
           <%= image_tag "#{suggestion.cover}"%>
           <% end %>
           <div class="card-product-infos">
             <h2><%= suggestion.name %></h2>
-              <p><%= truncate(suggestion.summary, length: 500, separator: ". ") %></p>
+            <strong><p>Because you liked : <%= ((suggestion.genres + suggestion.themes) & (@genres + @themes)).join(", ") %></p></strong>
+            <p><%= suggestion.rating.to_i %>/100</p>
+            <p><%= suggestion.platforms.join(', ') %></p>
                   <%= link_to game_path(suggestion) do %>
             <div class="secret-wishlist">
-              <p><%= suggestion.rating.to_i %>/100</p>
-              <p><%= suggestion.platforms.join(', ') %></p>
-              <p>Because you liked : <%= ((suggestion.genres + suggestion.themes) & (@genres + @themes)).join(", ") %></p>
+              <p><%= truncate(suggestion.summary, length: 500, separator: ". ") %> </p>
               <p>Click to see more</p>
             </div>
                 <% end %>

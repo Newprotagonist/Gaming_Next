@@ -18,10 +18,8 @@ export default class extends Controller {
 
   close(e) {
     if (this.searchdivTarget.contains(e.target)){
-      console.log("it is in the div")
       this.listTarget.style.display = ""
     } else{
-      console.log("not in the div")
       this.listTarget.style.display = "none"
       console.log(this.listTarget.classList)
     }
