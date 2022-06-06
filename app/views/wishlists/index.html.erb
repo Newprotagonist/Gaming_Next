@@ -6,6 +6,8 @@
   <% if @wishlists.empty? %>
   <p>No games added to wishlists yet</p>
   <% else %>
+  <%= link_to "Share with friends", share_path(current_user.id), class: "button" %>
+  <%= social_share_button_tag("Share", :url => share_url(current_user.id)) %>
   <ul class="container"
       data-controller="wishlist" id="wishlist">
         <% @wishlists.each do |wishlist| %>
