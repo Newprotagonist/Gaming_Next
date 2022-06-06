@@ -17,7 +17,7 @@
 }
 .searchbarlist {
   list-style: none;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.727);
   width: 600px;
   // margin-bottom: 100px;
   border-radius: 0 0 5px 5px;
@@ -38,11 +38,16 @@
 }
 
 .add {
+  margin-left: 10px ;
   i {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     color: white;
   }
+}
+
+.remove {
+  margin-left : 10px;
 }
 
 .remove:hover {
