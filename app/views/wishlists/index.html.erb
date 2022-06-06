@@ -1,12 +1,18 @@
 <div class="container">
   <div class="wishlist-title mb-3">
-      <h1>Your Wishlist</h1>
+    <h1>Your Wishlist</h1>
   </div>
+
   <% if @wishlists.empty? %>
-    <p>No games added to wishlists yet</p>
+  <p>No games added to wishlists yet</p>
   <% else %>
-    <% @wishlists.each do |wishlist| %>
-      <%= render partial: 'wishlist-card', locals: {wishlist: wishlist} %>
-    <% end %>
+  <ul class="container"
+      data-controller="wishlist" id="wishlist">
+        <% @wishlists.each do |wishlist| %>
+          <li data-id="<%= wishlist.id %>">
+            <%= render partial: 'wishlist-card', locals: {wishlist: wishlist} %>
+          </li>
+        <% end %>
+  </ul>
   <% end %>
 </div>
