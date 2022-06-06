@@ -11,7 +11,7 @@ export default class extends Controller {
     fetch(url, {headers: {"Accept": "text/plain"}})
       .then(response => response.text())
       .then((data) => {
-        console.log(data)
+        // console.log(data)
         this.listTarget.innerHTML = data
       })
   }

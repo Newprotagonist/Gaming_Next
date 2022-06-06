@@ -1,7 +1,6 @@
 <div class="page">
   <div class="searchbarcontainer">
     <div data-controller="searchbar">
-      <p class="instructions">Add your favorites games below, then click on the button to see the games found by our algorithm !</p>
       <div class="d-flex justify-content-center">
         <%= form_with url: favorites_path, method: :get, html: { class: "m-2", autocomplete: "off", data: {searchbar_target: "form"}} do |f| %>
         <%= f.text_field :query,
