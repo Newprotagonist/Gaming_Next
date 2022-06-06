@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
     @games = []
 
     if params[:query].present?
-      @games = Game.where('name ILIKE?', "%#{params[:query]}%").first(10)
+      @games = Game.where('unaccent(name) ILIKE unaccent(?)', "%#{params[:query]}%").first(10)
     end
 
     respond_to do |format|
@@ -20,6 +20,7 @@ class FavoritesController < ApplicationController
     @favorite.game_id = params[:game_id]
     authorize @favorite
     @favorite.save
+    # params[:query] = ''
     redirect_to favorites_path(query: params[:query])
   end
 
@@ -37,6 +38,7 @@ class FavoritesController < ApplicationController
     @favorite = Favorite.find(params[:id])
     authorize @favorite
     @favorite.destroy
+    # params[:query] = ''
     redirect_to favorites_path(query: params[:query]), status: :see_other
   end
 

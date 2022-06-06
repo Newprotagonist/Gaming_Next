@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="searchbar"
 export default class extends Controller {
 
-  static targets = ["form", "input", "list"]
+  static targets = ["form", "input", "list", "searchdiv"]
 
   update() {
     const url = `${this.formTarget.action}?query=${this.inputTarget.value}`
@@ -11,8 +11,19 @@ export default class extends Controller {
     fetch(url, {headers: {"Accept": "text/plain"}})
       .then(response => response.text())
       .then((data) => {
-        console.log(data)
+        // console.log(data)
         this.listTarget.innerHTML = data
       })
+  }
+
+  close(e) {
+    if (this.searchdivTarget.contains(e.target)){
+      console.log("it is in the div")
+      this.listTarget.style.display = ""
+    } else{
+      console.log("not in the div")
+      this.listTarget.style.display = "none"
+      console.log(this.listTarget.classList)
+    }
   }
 }
