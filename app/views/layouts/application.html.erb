@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= favicon_link_tag asset_path("logo.png") %>
+
   </head>
 
-  <body height="100%">
+  <body height="100%" class="<%= "moon" if cookies[:moon] %>">
     <%= render "shared/navbar" unless @disable_nav %>
     <%= render "shared/flashes" %>
     <div class="content-wrapper">

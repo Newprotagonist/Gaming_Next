@@ -21,9 +21,25 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: %i[photo])
   end
 
+  def moon
+    @authorize
+    cookies[:moon] = {
+      value: 'dark mode on'
+    }
+    redirect_to favorites_path
+  end
+
+  def sun
+    cookies.delete(:moon)
+    redirect_to favorites_path
+  end
+
   private
 
   def skip_pundit?
-    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+    devise_controller? ||
+      params[:controller] =~ /(^(rails_)?admin)|(^pages$)/ ||
+      action_name == "moon" ||
+      action_name == "sun"
   end
 end
