@@ -1,65 +1,64 @@
 <div class="container">
 
-  <h1>Our top 3 suggestions for you</h1>
-  <div class="d-flex align-items-end">
-    <div class="two">
-      <div class="game-card">
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="">
+      <div class="suggested-card">
         <div>
-          <%= image_tag "#{@suggestions[1].cover}", class: "game-cover"%>
+          <%= image_tag "#{@suggestions[1].cover}", class: "suggested-cover-silver"%>
         </div>
-        <div class="secret">
-          <p><%= @suggestions[1].rating.to_i %>/100</p>
+        <i class="fa-solid fa-medal two"></i>
+        <div class="suggested-secret">
+          <p>Because you liked : </p>
+          <% @suggestions[1].tags.uniq.first(8).each do |tag| %>
+          <p><em><%= tag.capitalize %></em></p>
+          <% end %>
+
           <%= link_to game_path(@suggestions[1]), class: "game-link" do %>
-            <p class="game-link">See more</p>
+            <a class="btn button-dark-blue">Go to game's page</a>
           <% end %>
         </div>
-      </div>
-      <div class="podium">
-        <h1 class="text-center">2</h1>
       </div>
     </div>
     <div>
-      <div class="one">
-        <div class="game-card">
+      <div class="">
+        <div class="suggested-card">
           <div>
-            <%= image_tag "#{@suggestions[0].cover}", class: "game-cover"%>
+            <%= image_tag "#{@suggestions[0].cover}", class: "suggested-cover-gold"%>
           </div>
-          <div class="secret">
-            <p><%= @suggestions[0].rating.to_i %>/100</p>
+          <i class="fa-solid fa-medal one"></i>
+          <div class="suggested-secret">
+            <p>Because you liked : </p>
+            <% @suggestions[0].tags.uniq.first(8).each do |tag| %>
+            <p><em><%= tag.capitalize %></em></p>
+            <% end %>
+
             <%= link_to game_path(@suggestions[0]), class: "game-link" do %>
-              <p class="game-link">See more</p>
+              <a class="btn button-dark-blue">Go to game's page</a>
             <% end %>
           </div>
         </div>
-        <div class="podium">
-          <h1 class="text-center">1</h1>
-        </div>
       </div>
     </div>
-    <div class="three">
-      <div class="game-card">
+    <div class="">
+      <div class="suggested-card">
         <div>
-          <%= image_tag "#{@suggestions[2].cover}", class: "game-cover"%>
+          <%= image_tag "#{@suggestions[2].cover}", class: "suggested-cover-bronze"%>
         </div>
-        <div class="secret">
-          <p><%= @suggestions[2].rating.to_i %>/100</p>
-            <%= link_to game_path(@suggestions[2]), class: "game-link" do %>
-            <p class="game-link">See more</p>
+        <i class="fa-solid fa-medal three"></i>
+        <div class="suggested-secret">
+          <p>Because you liked : </p>
+          <% @suggestions[2].tags.uniq.first(8).each do |tag| %>
+          <p><em><%= tag.capitalize %></em></p>
+          <% end %>
+
+          <%= link_to game_path(@suggestions[2]), class: "game-link" do %>
+            <a class="btn button-dark-blue">Go to game's page</a>
           <% end %>
         </div>
-      </div>
-      <div class="podium">
-        <h1 class="text-center">3</h1>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-
 
   <h1 class="text-center">Our suggestions for you</h1>
   <div class="d-flex flex-column align-items-center">
