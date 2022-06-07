@@ -6,11 +6,11 @@
   <% if @wishlists.empty? %>
   <p>No games added to wishlists yet</p>
   <% else %>
-  <div data-controller="popup">
+  <div class="share-div">
     <%= link_to "Share with friends", share_path(current_user.id), class: "button" %>
-  </div>
-  <div>
-    <%= social_share_button_tag("Share", :url => share_url(current_user.id)), data: { target: "popup.content" } %>
+    <div class="p-2">
+      <%= social_share_button_tag("Share", :url => share_url(current_user.id)) %>
+    </div>
   </div>
   <ul class="container"
       data-controller="wishlist" id="wishlist">

@@ -2,7 +2,9 @@
   <div class="wishlist-title mb-3">
     <h1 class="h1-wishlist">Discover <%= @user.username %>'s list:</h1>
   </div>
-
+  <div class="share-div p-3">
+    <%= social_share_button_tag("Share") %>
+  </div>
   <% if @wishlists.empty? %>
   <p>No games added to wishlists yet</p>
   <% else %>
