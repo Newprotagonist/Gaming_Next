@@ -11,9 +11,8 @@ class WishlistsController < ApplicationController
     @wishlist.user = current_user
     @wishlist.game = Game.find(params[:game_id])
     authorize @wishlist
-    if @wishlist.save
-      redirect_to wishlists_path
-    end
+    @wishlist.save
+    redirect_back(fallback_location: wishlists_path)
   end
 
 def order
@@ -36,6 +35,7 @@ end
     @wishlist = Wishlist.find(params[:id])
     authorize @wishlist
     @wishlist.destroy
-    redirect_to wishlists_path, status: :see_other
+    # redirect_to wishlists_path, status: :see_other
+    redirect_back fallback_location: wishlists_path, status: :see_other
   end
 end
