@@ -13,12 +13,9 @@ def should_skip(game, tags)
     game["screenshots"],
     game["videos"],
     game["aggregated_rating"],
+    game["cover"],
     tags
   ].any?(&:blank?)
-end
-
-def get_store(game)
-
 end
 
 unless User.find_by_email("test@test.com")
@@ -78,7 +75,8 @@ games.each do |game|
     genres: game&.dig("genres")&.pluck("name") || [],
     themes: game&.dig("themes")&.pluck("name") || [],
     tags: tags,
-    slug: game["slug"]
+    slug: game["slug"],
+    stores: game["stores"]
   )
   n += 1
   print "\rCreated games: #{n.to_s.rjust(5)}"
