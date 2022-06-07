@@ -1,25 +1,8 @@
 <div class="container">
-
-  <div class="d-flex justify-content-center align-items-center">
-    <div class="">
-      <div class="suggested-card">
-        <div>
-          <%= image_tag "#{@suggestions[1].cover}", class: "suggested-cover-silver"%>
-        </div>
-        <i class="fa-solid fa-medal two"></i>
-        <div class="suggested-secret">
-          <p>Because you liked : </p>
-          <% @suggestions[1].tags.uniq.first(8).each do |tag| %>
-          <p><em><%= tag.capitalize %></em></p>
-          <% end %>
-
-          <%= link_to game_path(@suggestions[1]), class: "game-link" do %>
-            <a class="btn button-dark-blue">Go to game's page</a>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <div>
+  <div class="top">
+    <h1 class="text-center">Our top suggestions for you</h1>
+    <a class="btn button-dark-blue" href="">See all of our suggestions</a>
+    <div class="d-flex justify-content-center align-items-start">
       <div class="">
         <div class="suggested-card">
           <div>
@@ -29,42 +12,60 @@
           <div class="suggested-secret">
             <p>Because you liked : </p>
             <% @suggestions[0].tags.uniq.first(8).each do |tag| %>
-            <p><em><%= tag.capitalize %></em></p>
+              <p><em><%= tag.capitalize %></em></p>
             <% end %>
-
             <%= link_to game_path(@suggestions[0]), class: "game-link" do %>
               <a class="btn button-dark-blue">Go to game's page</a>
             <% end %>
           </div>
         </div>
       </div>
-    </div>
-    <div class="">
-      <div class="suggested-card">
-        <div>
-          <%= image_tag "#{@suggestions[2].cover}", class: "suggested-cover-bronze"%>
-        </div>
-        <i class="fa-solid fa-medal three"></i>
-        <div class="suggested-secret">
-          <p>Because you liked : </p>
-          <% @suggestions[2].tags.uniq.first(8).each do |tag| %>
-          <p><em><%= tag.capitalize %></em></p>
-          <% end %>
+      <div class="">
+        <div class="suggested-card">
+          <div>
+            <%= image_tag "#{@suggestions[1].cover}", class: "suggested-cover-silver"%>
+          </div>
+          <i class="fa-solid fa-medal two"></i>
+          <div class="suggested-secret">
+            <p>Because you liked : </p>
+            <% @suggestions[1].tags.uniq.first(8).each do |tag| %>
+            <p><em><%= tag.capitalize %></em></p>
+            <% end %>
 
-          <%= link_to game_path(@suggestions[2]), class: "game-link" do %>
-            <a class="btn button-dark-blue">Go to game's page</a>
-          <% end %>
+            <%= link_to game_path(@suggestions[1]), class: "game-link" do %>
+              <a class="btn button-dark-blue">Go to game's page</a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="">
+        <div class="suggested-card">
+          <div>
+            <%= image_tag "#{@suggestions[2].cover}", class: "suggested-cover-bronze"%>
+          </div>
+          <i class="fa-solid fa-medal three"></i>
+          <div class="suggested-secret">
+            <p>Because you liked : </p>
+            <% @suggestions[2].tags.uniq.first(8).each do |tag| %>
+            <p><em><%= tag.capitalize %></em></p>
+            <% end %>
+
+            <%= link_to game_path(@suggestions[2]), class: "game-link" do %>
+              <a class="btn button-dark-blue">Go to game's page</a>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-  <h1 class="text-center">Our suggestions for you</h1>
-  <div class="d-flex flex-column align-items-center">
-    <%= "Please add some games to your favorites" if @suggestions.empty?%>
-    <% @suggestions.each do |suggestion| %>
-      <div class="card-product">
+  <div class="all">
+    <h1 class="text-center">All our suggestions for you</h1>
+    <a class="btn button-dark-blue" href="">Show top 3</a>
+    <div class="d-flex flex-column align-items-center">
+      <%= "Please add some games to your favorites" if @suggestions.empty?%>
+      <% @suggestions.each do |suggestion| %>
+        <div class="card-product">
           <%= link_to game_path(suggestion) do %>
             <%= image_tag "#{suggestion.cover}"%>
           <% end %>
@@ -80,7 +81,9 @@
               </div>
             <% end %>
           </div>
-      </div>
-    <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
+
 </div>
