@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_06_093220) do
+
+ActiveRecord::Schema[7.0].define(version: 2022_06_06_121522) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -71,6 +72,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_06_093220) do
     t.string "genres", default: [], array: true
     t.string "franchises", default: [], array: true
     t.string "themes", default: [], array: true
+    t.string "slug"
+    t.string "stores", array: true
     t.index ["tags"], name: "index_games_on_tags", using: :gin
   end
 
