@@ -2,3 +2,5 @@
 import "@hotwired/turbo-rails";
 import "./controllers";
 import "bootstrap";
+import "./social_share_button/social_share_button";
+import "./social_share_button/jquery.qrcode.min";
