@@ -2,6 +2,7 @@
   <div class="top">
     <h1 class="text-center">Our top suggestions for you</h1>
     <a class="btn button-dark-blue" href="">See all of our suggestions</a>
+    <%unless @suggestions.empty? %>
     <div class="d-flex justify-content-center align-items-start">
       <div class="">
         <div class="suggested-card">
@@ -58,6 +59,7 @@
       </div>
     </div>
   </div>
+  <% end %>
 
   <div class="all">
     <h1 class="text-center">All our suggestions for you</h1>
