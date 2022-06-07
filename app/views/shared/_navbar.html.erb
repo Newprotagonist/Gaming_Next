@@ -1,42 +1,47 @@
+
 <div class="navbar navbar-expand-sm navbar-light navbar-display">
-  <div class="container-fluid">
-    <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "logo.png", class: "logo" %>
-    <% end %>
+  <div class="container">
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="container-fluid d-flex justify-content-between">
+      <%= link_to "/", class: "navbar-brand" do %>
+        <div class="logo1">Gaming<br><em>Next</em></div>
+      <% end %>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "Suggested", suggestions_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item active">
-            <%= link_to "Favorites", favorites_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Wishlist", wishlists_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
-              <%= image_tag "profile-icon.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% end %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-              <%= link_to "Update profile", edit_user_registration_path, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa-solid fa-caret-down drop-arrow"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "Suggested", suggestions_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "Favorites", favorites_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Wishlist", wishlists_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item dropdown">
+              <span class="hello"> 👋 Hello, <%= current_user.username %></span>
+              <% if current_user.photo.attached? %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% else %>
+                <%= image_tag "profile-icon.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <% end %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+                <%= link_to "Update profile", edit_user_registration_path, class: "dropdown-item" %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
