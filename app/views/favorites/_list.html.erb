@@ -4,7 +4,7 @@
     <div class="d-flex">
       <%= link_to game_path(game) do %>
         <div class="d-flex align-items-center">
-        <%= image_tag game.cover, class:"game-thumb" %>
+        <%= image_tag game.cover.sub("t_1080p", "t_thumb"), class:"game-thumb" %>
         <%= game.name %>
         </div>
       <% end %>
@@ -22,7 +22,7 @@
     <div class="d-flex">
       <%= link_to game_path(game) do %>
       <div class="d-flex align-items-center">
-        <%= image_tag game.cover, class:"game-thumb" %>
+        <%= image_tag game.cover.sub("t_1080p", "t_thumb"), class:"game-thumb" %>
         <%= game.name %>
       </div>
       <% end %>

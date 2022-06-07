@@ -18,6 +18,10 @@ class WishlistPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def share?
+    true
+  end
+
   def destroy?
     record.user == user
   end
