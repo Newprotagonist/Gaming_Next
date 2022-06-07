@@ -1,4 +1,6 @@
 class WishlistsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :share ]
+
   def index
     @wishlists = policy_scope(Wishlist).order(sort: :asc)
     @i = 0
@@ -21,6 +23,13 @@ def order
     authorize wishlist
     wishlist.save!
   end
+end
+
+def share
+  @user = User.find(params[:id])
+  @wishlists = @user.wishlists
+  authorize @wishlists
+  @i = 0
 end
 
   def destroy
