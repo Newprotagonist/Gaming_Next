@@ -1,24 +1,85 @@
 <div class="container">
+
+  <h1>Our top 3 suggestions for you</h1>
+  <div class="d-flex align-items-end">
+    <div class="two">
+      <div class="game-card">
+        <div>
+          <%= image_tag "#{@suggestions[1].cover}", class: "game-cover"%>
+        </div>
+        <div class="secret">
+          <p><%= @suggestions[1].rating.to_i %>/100</p>
+          <%= link_to game_path(@suggestions[1]), class: "game-link" do %>
+            <p class="game-link">See more</p>
+          <% end %>
+        </div>
+      </div>
+      <div class="podium">
+        <h1 class="text-center">2</h1>
+      </div>
+    </div>
+    <div>
+      <div class="one">
+        <div class="game-card">
+          <div>
+            <%= image_tag "#{@suggestions[0].cover}", class: "game-cover"%>
+          </div>
+          <div class="secret">
+            <p><%= @suggestions[0].rating.to_i %>/100</p>
+            <%= link_to game_path(@suggestions[0]), class: "game-link" do %>
+              <p class="game-link">See more</p>
+            <% end %>
+          </div>
+        </div>
+        <div class="podium">
+          <h1 class="text-center">1</h1>
+        </div>
+      </div>
+    </div>
+    <div class="three">
+      <div class="game-card">
+        <div>
+          <%= image_tag "#{@suggestions[2].cover}", class: "game-cover"%>
+        </div>
+        <div class="secret">
+          <p><%= @suggestions[2].rating.to_i %>/100</p>
+            <%= link_to game_path(@suggestions[2]), class: "game-link" do %>
+            <p class="game-link">See more</p>
+          <% end %>
+        </div>
+      </div>
+      <div class="podium">
+        <h1 class="text-center">3</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
   <h1 class="text-center">Our suggestions for you</h1>
-  <!---<h2>We found <%= @suggestions.size %> games</h2>-->
   <div class="d-flex flex-column align-items-center">
     <%= "Please add some games to your favorites" if @suggestions.empty?%>
     <% @suggestions.each do |suggestion| %>
       <div class="card-product">
           <%= link_to game_path(suggestion) do %>
-          <%= image_tag "#{suggestion.cover}"%>
+            <%= image_tag "#{suggestion.cover}"%>
           <% end %>
           <div class="card-product-infos">
             <h2><%= suggestion.name %></h2>
-              <p><%= truncate(suggestion.summary, length: 500, separator: ". ") %></p>
-                  <%= link_to game_path(suggestion) do %>
-            <div class="secret-wishlist">
-              <p><%= suggestion.rating.to_i %>/100</p>
-              <p><%= suggestion.platforms.join(', ') %></p>
-              <p>Because you liked : <%= ((suggestion.genres + suggestion.themes) & (@genres + @themes)).join(", ") %></p>
-              <p>Click to see more</p>
-            </div>
-                <% end %>
+            <p><%= truncate(suggestion.summary, length: 500, separator: ". ") %></p>
+            <%= link_to game_path(suggestion) do %>
+              <div class="secret-wishlist">
+                <p><%= suggestion.rating.to_i %>/100</p>
+                <p><%= suggestion.platforms.join(', ') %></p>
+                <p>Because you liked : <%= ((suggestion.genres + suggestion.themes) & (@genres + @themes)).join(", ") %></p>
+                <p>Click to see more</p>
+              </div>
+            <% end %>
           </div>
       </div>
     <% end %>
