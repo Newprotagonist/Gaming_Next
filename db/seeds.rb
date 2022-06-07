@@ -13,6 +13,7 @@ def should_skip(game, tags)
     game["screenshots"],
     game["videos"],
     game["aggregated_rating"],
+    game["cover"],
     tags
   ].any?(&:blank?)
 end
@@ -73,7 +74,9 @@ games.each do |game|
     game_modes: game["game_modes"]&.pluck("name"),
     genres: game&.dig("genres")&.pluck("name") || [],
     themes: game&.dig("themes")&.pluck("name") || [],
-    tags: tags
+    tags: tags,
+    slug: game["slug"],
+    stores: game["stores"]
   )
   n += 1
   print "\rCreated games: #{n.to_s.rjust(5)}"

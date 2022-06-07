@@ -9,12 +9,14 @@
  height: 90px;
  z-index: 11;
  position: relative;
-
+ display: flex;
+ justify-content: center;
 }
 
 .searchbar {
   width: 433px;
 }
+
 .searchbarlist {
   list-style: none;
   background-color: rgba(255, 255, 255, 0.727);
@@ -63,5 +65,19 @@
   i{
     transition: 0.3s;
     color: black;
+  }
+}
+
+@media(max-width: 760px) {
+  .searchbar {
+    width: 360px;
+  }
+
+  .searchbarlist {
+    width: 360px;
+  }
+
+  .searchbarcontainer {
+    width: 360px;
   }
 }

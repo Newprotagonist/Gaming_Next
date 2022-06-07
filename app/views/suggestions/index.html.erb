@@ -10,15 +10,15 @@
           <% end %>
           <div class="card-product-infos">
             <h2><%= suggestion.name %></h2>
-              <p><%= truncate(suggestion.summary, length: 500, separator: ". ") %></p>
-                  <%= link_to game_path(suggestion) do %>
-            <div class="secret-wishlist">
-              <p><%= suggestion.rating.to_i %>/100</p>
-              <p><%= suggestion.platforms.join(', ') %></p>
-              <p>Because you liked : <%= ((suggestion.genres + suggestion.themes) & (@genres + @themes)).join(", ") %></p>
-              <p>Click to see more</p>
-            </div>
-                <% end %>
+            <p><%= truncate(suggestion.summary, length: 500, separator: ". ") %></p>
+            <%= link_to game_path(suggestion) do %>
+              <div class="secret-wishlist">
+                <p><%= suggestion.rating.to_i %>/100</p>
+                <p><%= suggestion.platforms.join(', ') %></p>
+                <p>Because you liked : <%= ((suggestion.genres + suggestion.themes) & (@genres + @themes)).join(", ") %></p>
+                <p>Click to see more</p>
+              </div>
+            <% end %>
           </div>
       </div>
     <% end %>

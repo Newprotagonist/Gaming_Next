@@ -4,7 +4,6 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
   margin-bottom: 20px;
   position: relative;
   width: calc(100% - 10%);
@@ -31,6 +30,7 @@
 
 .card-product .card-product-infos {
   padding: 10px;
+  overflow: hidden;
 }
 
 .card-product i {
@@ -96,4 +96,14 @@
 
 .wishlist-title {
   text-align: center;
+}
+
+
+@media(max-width: 940px) {
+  .card-product-infos p {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
 }
