@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.3"
 
+# Social media button for sharing links
+gem 'social-share-button'
+
 # Cloudinary for picture upload
 gem "cloudinary"
 

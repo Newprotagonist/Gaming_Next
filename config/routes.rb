@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   end
   resources :games, only: :show
   get 'suggestions', to: 'suggestions#index'
+  get 'wishlists/:id/share', to: 'wishlists#share', as: :share
 end
