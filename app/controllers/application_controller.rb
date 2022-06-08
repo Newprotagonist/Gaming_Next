@@ -26,14 +26,14 @@ class ApplicationController < ActionController::Base
     cookies[:moon] = {
       value: 'on'
     }
-    redirect_to favorites_path
+    redirect_back fallback_location: root_path
   end
 
   def sun
     cookies[:moon] = {
       value: 'off'
     }
-    redirect_to favorites_path
+    redirect_back fallback_location: root_path
   end
 
   def set_cookie_moon
