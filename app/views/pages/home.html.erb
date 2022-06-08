@@ -2,17 +2,14 @@
 <% @disable_foot = true %>
 
 <div class="homepage-background">
+  <div class="logo1 homepagelogo">Gaming<br><em>Next</em></div>
   <div class="homepage-box">
-    <h1 class="homepage-h1">Gaming Next</h1>
-    <p>You don’t know <strong>what to play ?</strong></p>
-    <p><strong>We got you !</strong></p>
-    <p>Just click on search, </p>
-    <p>follow the instructions, </p>
-    <p>and <strong>find the best game for you !</strong></p>
+  <h1 class="homepage-h1">You don’t know what to play ? <br>We got you !</h1>
+  <p>Just click on search, follow the instructions, and find the best game for you !</p>
 
-    <%= link_to "Search", favorites_path, class: "button button-dark-blue button-big" %>
+  <%= image_tag "white_arrow.gif", alt: "gamer gif", class: "white-arrow" %>
+  <%= link_to "Let's start", favorites_path, class: "button button-homepage" %>
   </div>
-    <div class="homepage-comments">
-      <p>Over <strong>8000 games</strong> are waiting for you. Discover our <strong>enhanced algorithm</strong> to find the best match based on your favorites games !</p>
-    </div>
+
+  <%= image_tag "game_gif.gif", alt: "gamer gif", class: "homepage-gif" %>
 </div>
