@@ -19,9 +19,13 @@ class FavoritesController < ApplicationController
     @favorite.user = current_user
     @favorite.game_id = params[:game_id]
     authorize @favorite
-    @favorite.save
+    @favorite.save!
     # params[:query] = ''
-    redirect_to favorites_path(query: params[:query])
+    if params[:query]
+      redirect_to favorites_path(query: params[:query])
+    else
+      redirect_back(fallback_location: favorites_path)
+    end
   end
 
   def update
@@ -39,7 +43,12 @@ class FavoritesController < ApplicationController
     authorize @favorite
     @favorite.destroy
     # params[:query] = ''
-    redirect_to favorites_path(query: params[:query]), status: :see_other
+    # redirect_to favorites_path(query: params[:query]), status: :see_other
+    if params[:query]
+      redirect_to favorites_path(query: params[:query]), status: :see_other
+    else
+      redirect_back(fallback_location: favorites_path, status: :see_other)
+    end
   end
 
   private
