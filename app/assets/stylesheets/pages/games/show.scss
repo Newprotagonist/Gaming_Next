@@ -20,6 +20,9 @@
   display: flex;
   justify-content: space-between;
   margin-right: 45px;
+  h2 {
+    padding-top: 6px;
+  }
 }
 
 .images-part {
@@ -73,4 +76,41 @@
 
 .modal-body {
   background-color: $dark-blue;
+}
+
+.like-button {
+
+  font-size: 23px;
+  margin-right: 10px;
+}
+
+.choices-buttons {
+  display: flex;
+}
+
+.game-summary {
+  margin-left: 45px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 60px;
+
+}
+
+.summary-game {
+  width: 600px;
+  margin-top: 10px;
+}
+
+.buy-button {
+  width: 200px;
+  color: $azur;
+  background-color: white;
+}
+
+.add-wish {
+  width: 200px;
+}
+
+.wish-icon {
+  text-align: center;
 }
