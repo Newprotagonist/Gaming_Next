@@ -1,5 +1,17 @@
 <div class="container">
-  <div class="modal fade" id="storesModal" tabindex="-1" aria-labelledby="storesModalLabel" aria-hidden="true">
+  <div class="images-part">
+    <div>
+      <%= image_tag @game.cover, class: "game-cover-show" %>
+    </div>
+    <div>
+      <%= image_tag @game.screenshots[0..1].sample, class: "main-screenshots" %>
+    </div>
+    <div class="right-screens">
+      <%= image_tag @game.screenshots[2..3].sample, class: "screenshots-show"%>
+      <%= image_tag @game.screenshots[4..5].sample, class: "screenshots-show" %>
+    </div>
+  </div>
+  <div class="modal fade modal-custo" id="storesModal" tabindex="-1" aria-labelledby="storesModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -18,73 +30,49 @@
   </div>
   <div class="title-show">
     <h1><%= @game.name %></h1>
-    <h2> <em>Rating : <%= @game.rating.round(1) %>/100</em></h2>
+    <turbo-frame id="buttons">
+      <div class="d-flex">
+        <div>
+          <% if current_user.wishlist?(@game) %>
+            <%= link_to "Remove from wishlist", wishlist_path(current_user.wishlists.find_by(game: @game)), data: { turbo_method: :delete }, class: "button" %>
+          <% else %>
+            <%= link_to "Add to wishlist", wishlists_path(game_id: @game.id), data: { turbo_method: :post }, class: "button" %>
+          <% end %>
+          <p><i class="fa-solid fa-clipboard-list"></i> <%= @game.wishlists.size + @game.name.sum(&:ord) %></p>
+        </div>
+        <div>
+          <% if current_user.favorite?(@game) %>
+            <%= link_to "Remove from favorites", favorite_path(current_user.favorites.find_by(game: @game)), data: { turbo_method: :delete }, class: "button" %>
+          <% else %>
+            <%= link_to "Add to favorites", favorites_path(game_id: @game.id), data: { turbo_method: :post }, class: "button" %>
+          <% end %>
+          <p><i class="fa-solid fa-heart"></i> <%= @game.favorites.size + @game.name.sum(&:ord) * (@game.name.chr.ord % 10 + 2) %></p>
+        </div>
+        <% unless @game.stores.blank? %>
+          <div>
+            <a class="button" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#storesModal">Buy this game</a>
+            <p><i class="fa-solid fa-cart-shopping"></i> <%= rand(15..45) %>€</p>
+          </div>
+        <% end %>
+      </div>
+    </turbo-frame>
+  </div>
+  <div class="ratingtags">
+    ⭐️<%= @game.rating.round(1) %>/100
+    <% @game.tags.first(5).each do |tag| %>
+    <div class="gameshowtags"><%= tag %></div>
+    <% end %>
+  </div>
+  <div>
+  <%= @game.summary %>
   </div>
     <div class="row d-flex align-items-center">
-      <div class="col-7">
-        <div data-controller="carousel" class="swiper-container w-600 mt-2"
-            data-carousel-options-value='{
-              "loop": true,
-              "pagination": { "el": ".swiper-pagination",
-                              "dynamicBullets":  "true" },
-              "navigation": { "nextEl": ".swiper-button-next",
-                              "prevEl": ".swiper-button-prev"}}'>
-          <div class="swiper-wrapper">
-            <% if @game.videos != nil %>
-              <% @game.videos.each do |video| %>
-                <div class="swiper-slide">
-                  <iframe width="500" height="300"
-                    src=<%= video %> title="YouTube video player"
-                    frameborder="0"
-                    allowfullscreen>
-                  </iframe>
-                </div>
-              <% end %>
-            <% end %>
-            <% @game.screenshots.each do |screenshot| %>
-              <div class="swiper-slide"><%= image_tag screenshot, alt: "Game Screenshot" %></div>
-            <% end %>
-          </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
-      </div>
       <div class="col-5 show-summary">
-        <p></p>
-        <p><%= @game.summary %></p>
-        <turbo-frame id="buttons">
-          <div class="d-flex justify-content-center">
-            <div class="d-flex flex-column">
-              <% if current_user.wishlist?(@game) %>
-                <%= link_to "Remove from wishlist", wishlist_path(current_user.wishlists.find_by(game: @game)), data: { turbo_method: :delete }, class: "button" %>
-              <% else %>
-                <%= link_to "Add to wishlist", wishlists_path(game_id: @game.id), data: { turbo_method: :post }, class: "button" %>
-              <% end %>
-              <p><i class="fa-solid fa-clipboard-list"></i> <%= @game.wishlists.size + @game.name.sum(&:ord) %></p>
-            </div>
-            <div class="d-flex flex-column">
-              <% if current_user.favorite?(@game) %>
-                <%= link_to "Remove from favorites", favorite_path(current_user.favorites.find_by(game: @game)), data: { turbo_method: :delete }, class: "button" %>
-              <% else %>
-                <%= link_to "Add to favorites", favorites_path(game_id: @game.id), data: { turbo_method: :post }, class: "button" %>
-              <% end %>
-              <p><i class="fa-solid fa-heart"></i> <%= @game.favorites.size + @game.name.sum(&:ord) * (@game.name.chr.ord % 10 + 2) %></p>
-            </div>
-            <% unless @game.stores.blank? %>
-              <div class="d-flex flex-column">
-                <a class="button" style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#storesModal">Buy this game</a>
-                <p><i class="fa-solid fa-cart-shopping"></i> <%= rand(15..45) %>€</p>
-              </div>
-            <% end %>
-          </div>
-        </turbo-frame>
       </div>
       <div class= "col-12 show-infos">
         <div class="row">
-          <ul>
             <% @game.platforms.each do |platform| %>
-              <li>
+              <div>
                 <% if platform.upcase.include?("PC") %>
                   <i class="fa-solid fa-desktop"></i> <%= platform %>
                 <% elsif platform.upcase.include?("MAC") %>
@@ -96,14 +84,9 @@
                 <% else %>
                   <%= platform  %>
                 <% end %>
-              </li>
+              </div>
             <% end %>
-          </ul>
-        </div>
-        <div class="row">
-          <ul>
-            <li><%=truncate(@game.tags.join(", "), length: 100, separator: " ") %></li>
-          </ul>
-        </div>
+          </div>
       </div>
+    </div>
 </div>

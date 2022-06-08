@@ -1,5 +1,5 @@
 .button {
-  background-color: $gray;
+  background-color: $azur;
   color: $light-gray;
   padding: 12px;
   margin: 5px;
@@ -10,12 +10,11 @@
   align-items: center;
   border-radius: 7px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: lighter;
 
   &:hover {
     background-color: $dark-gray;
     color: $light-gray;
-
   }
 }
 

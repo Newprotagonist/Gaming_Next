@@ -1,16 +1,3 @@
-.swiper-slide {
-  height: 400px;
-  width: 600px;
-  display: flex;
-  align-items:center;
-  justify-content: center;
-
-  img {
-    height: 350px;
-    width: 600px;
-  }
-}
-
 .show-summary {
   font-size: 16px;
   text-align: center;
@@ -28,5 +15,62 @@
 }
 
 .title-show {
-  text-align: center;
+  margin-left: 45px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 45px;
+}
+
+.images-part {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.game-cover-show {
+  border-radius: 5px;
+  height: 322px;
+  width: 206px;
+}
+
+.main-screenshots {
+  border-radius: 5px;
+  height: 322px;
+  width: 572px;
+}
+
+.screenshots-show {
+  border-radius: 5px;
+  height: 151px;
+  width: 320px;
+}
+
+.right-screens {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.ratingtags {
+  margin: 0 45px;
+  font-size: 20px;
+  display: flex ;
+}
+
+.gameshowtags {
+  margin-left: 10px;
+  font-size: 14px;
+  padding: 4px;
+  background-color: $middle-blue;
+  color: white;
+  border-radius: 5px;
+}
+
+.modal-header {
+  background-color: $dark-blue;
+}
+
+.modal-body {
+  background-color: $dark-blue;
 }
