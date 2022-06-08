@@ -1,0 +1,25 @@
+body.moon {
+  background-color: $dark-blue;
+}
+
+.moon .searchbar {
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.moon .searchbarlist {
+  background-color: rgba(36, 87, 153, 0.727);
+  color: white;
+  a {
+    text-decoration: none;
+    color: $light-gray;
+  }
+}
+
+.moon .navbar {
+  background-color: black;
+}
+
+.moon .footer {
+  background-color: black;
+}

@@ -2,6 +2,21 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-display">
   <div class="container">
 
+    <% if cookies[:moon] == "on" %>
+      <%= link_to sun_path do %>
+        <input type="checkbox" id="toggle" checked>
+        <label for="toggle" class="modebutton"></label>
+      <% end %>
+    <% else %>
+      <%= link_to moon_path do %>
+        <input type="checkbox" id="toggle">
+        <label for="toggle" class="modebutton"></label>
+      <% end %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="container-fluid d-flex justify-content-between">
       <%= link_to "/", class: "navbar-brand" do %>
         <div class="logo1">Gaming<br><em>Next</em></div>
@@ -23,12 +38,13 @@
             <li class="nav-item">
               <%= link_to "Wishlist", wishlists_path, class: "nav-link" %>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown d-flex align-items-center">
               <span class="hello"> 👋 Hello, <%= current_user.username %></span>
               <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% else %>
-                <%= image_tag "profile-icon.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <i class="fa-solid fa-user-secret unknown-user" id="navbarDropdown" aria-haspopup="true" aria-expanded="false"
+                     data-bs-toggle="dropdown" ></i>
               <% end %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>

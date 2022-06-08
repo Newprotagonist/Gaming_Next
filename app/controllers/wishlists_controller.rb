@@ -15,21 +15,21 @@ class WishlistsController < ApplicationController
     redirect_back(fallback_location: wishlists_path)
   end
 
-def order
-  params[:list_items_attributes].split(",").each_with_index do |id, index|
-    wishlist = Wishlist.find(id)
-    wishlist.sort = index
-    authorize wishlist
-    wishlist.save!
+  def order
+    params[:list_items_attributes].split(",").each_with_index do |id, index|
+      wishlist = Wishlist.find(id)
+      wishlist.sort = index
+      authorize wishlist
+      wishlist.save!
+    end
   end
-end
 
-def share
-  @user = User.find(params[:id])
-  @wishlists = @user.wishlists
-  authorize @wishlists
-  @i = 0
-end
+  def share
+    @user = User.find(params[:id])
+    @wishlists = @user.wishlists
+    authorize @wishlists
+    @i = 0
+  end
 
   def destroy
     @wishlist = Wishlist.find(params[:id])
