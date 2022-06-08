@@ -1,3 +1,21 @@
+.game-card-container {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 330px;
+
+  & p {
+    padding: 0px 20px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    margin: 0px;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
 .cards-container {
   display: flex;
   position: relative;
@@ -100,7 +118,7 @@
       text-decoration: none;
     }
     .game-trash-can {
-      color: $red;
+      color: white;
     }
   }
 }
