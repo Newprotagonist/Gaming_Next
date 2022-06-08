@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div class="">
+      <div>
         <div class="suggested-card">
           <div class="suggested-cover-silver">
             <%= image_tag "#{@suggestions[1].cover}", class: "suggested-cover-silver"%>
@@ -37,14 +37,13 @@
             <% @suggestions[1].tags.uniq.first(8).each do |tag| %>
             <p><em><%= tag.capitalize %></em></p>
             <% end %>
-
             <%= link_to game_path(@suggestions[1]), class: "game-link" do %>
               <a class="btn button-dark-blue">Go to game's page</a>
             <% end %>
           </div>
         </div>
       </div>
-      <div class="">
+      <div>
         <div class="suggested-card">
           <div class="suggested-cover-bronze">
             <%= image_tag "#{@suggestions[2].cover}", class: "suggested-cover-bronze"%>
@@ -56,9 +55,8 @@
           <div class="suggested-secret">
             <p>Because you liked : </p>
             <% @suggestions[2].tags.uniq.first(8).each do |tag| %>
-            <p><em><%= tag.capitalize %></em></p>
+              <p><em><%= tag.capitalize %></em></p>
             <% end %>
-
             <%= link_to game_path(@suggestions[2]), class: "game-link" do %>
               <a class="btn button-dark-blue">Go to game's page</a>
             <% end %>
@@ -68,7 +66,6 @@
     </div>
   </div>
   <% end %>
-
   <div class="all">
     <h1 class="text-justify">All suggestions</h1>
     <div class="d-flex justify-content-between row">
@@ -94,9 +91,8 @@
               <% end %>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-
 </div>

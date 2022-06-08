@@ -7,12 +7,13 @@
     <%= csp_meta_tag %>
     <meta property="og:title" content="The best gaming site" />
     <meta property="og:description" content="Your one and only site for finding the right game for you.">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= favicon_link_tag asset_path("logo.png") %>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
   </head>
 
-  <body height="100%">
+  <body height="100%" class="<%= "moon" if cookies[:moon] == "on" %>">
     <%= render "shared/navbar" unless @disable_nav %>
     <%= render "shared/flashes" %>
     <div class="content-wrapper">
