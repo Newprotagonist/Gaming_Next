@@ -10,7 +10,7 @@
                         data: {searchbar_target: "input",
                         action: "keyup->searchbar#update"} %>
         <% end %>
-        <%= link_to "Suggested for me", suggestions_path, class: "button button-small" %>
+        <%= link_to "Check our suggestions", suggestions_path, class: "button button-favorites" %>
       </div>
       <ul data-searchbar-target="list" class="searchbarlist">
         <%= render 'list', games: @games %>

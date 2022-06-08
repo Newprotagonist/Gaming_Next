@@ -10,7 +10,7 @@
             <i class="fa-solid fa-medal one"></i>
           </div>
           <div class="suggest-name">
-            <%= @suggestions[0].name %>
+            <%= truncate(@suggestions[0].name, length: 40, separator: " ") %>
           </div>
           <div class="suggested-secret">
             <p>Because you liked : </p>
@@ -30,7 +30,7 @@
             <i class="fa-solid fa-medal two"></i>
           </div>
           <div class="suggest-name">
-            <%= @suggestions[1].name %>
+            <%= truncate(@suggestions[1].name, length: 40, separator: " ")%>
           </div>
           <div class="suggested-secret">
             <p>Because you liked : </p>
@@ -50,7 +50,7 @@
             <i class="fa-solid fa-medal three"></i>
           </div>
           <div class="suggest-name">
-            <%= @suggestions[2].name %>
+            <%= truncate(@suggestions[2].name, length: 40, separator: " ") %>
           </div>
           <div class="suggested-secret">
             <p>Because you liked : </p>

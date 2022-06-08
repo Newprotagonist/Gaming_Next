@@ -20,7 +20,7 @@
         </div>
         <div class="modal-body">
           <div class="d-flex justify-content-between">
-            <% @game.stores.each do |store| %>
+            <% @game.stores&.each do |store| %>
               <%= link_to store.match(/(?<store>[a-z]+)\.[^\.]*$/)["store"].capitalize, store, target: "_blank", class: "button" %>
             <% end %>
           </div>
