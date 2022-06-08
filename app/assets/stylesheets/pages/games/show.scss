@@ -20,6 +20,9 @@
   display: flex;
   justify-content: space-between;
   margin-right: 45px;
+  h2 {
+    padding-top: 6px;
+  }
 }
 
 .images-part {
@@ -76,9 +79,9 @@
 }
 
 .like-button {
-  padding-bottom: 15px;
-  font-size: 20px;
-  margin-right: 30px;
+
+  font-size: 23px;
+  margin-right: 10px;
 }
 
 .choices-buttons {
@@ -89,9 +92,25 @@
   margin-left: 45px;
   display: flex;
   justify-content: space-between;
+  margin-right: 60px;
+
 }
 
 .summary-game {
   width: 600px;
   margin-top: 10px;
+}
+
+.buy-button {
+  width: 200px;
+  color: $azur;
+  background-color: white;
+}
+
+.add-wish {
+  width: 200px;
+}
+
+.wish-icon {
+  text-align: center;
 }
