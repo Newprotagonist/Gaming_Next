@@ -67,7 +67,9 @@
     </div>
     <% end %>
     <div class="all">
-      <h1 class="text-justify">All suggestions</h1>
+      <% if !@suggestions.empty? %>
+        <h1 class="text-justify">All suggestions</h1>
+      <% end %>
       <div class="d-flex justify-content-center row">
         <%= "Please add some games to your favorites" if @suggestions.empty?%>
         <% @suggestions.each do |suggestion| %>
