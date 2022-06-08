@@ -32,8 +32,8 @@
 
 .modebutton {
   display: inline-block;
-    width: 90px;
-    height: 35px;
+    width: 60px;
+    height: 15px;
     background-color: #fff;
     border-radius: 30px;
     position: relative;
@@ -41,10 +41,10 @@
 }
 
 .modebutton::after {
-  content: url('../../images/sun-line.svg');
+  content: url("../../images/sun-line.svg");
   /* Add in the image. You could also add an icon by the using the icon's unicode (sites like fontawesome.com provide this). */
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
   /* Making the icon slightly taller than the button container. */
   background-color: #e03c3c;
   border: 2px solid #fff;
@@ -64,7 +64,7 @@
 }
 
 #toggle:checked+.modebutton::after {
-  content: url('../../images/moon-line.svg');
+  content: url("../../images/moon-line.svg");
   /* Switching the images when clicked. */
   background-color: #1f257f;
   transform: translateX(50px) rotate(360deg);
