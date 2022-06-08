@@ -80,12 +80,14 @@
               <%= image_tag "#{suggestion.cover}"%>
             <% end %>
             <div class="suggest-rating d-flex justify-content-center">
-                <p><i class="fa-solid fa-thumbs-up ml-2"></i><%= suggestion.rating.round(1) %>%</p>
+                <p><i class="fa-solid fa-face-grin"></i><%= suggestion.rating.round(1) %>%</p>
             </div>
           </div>
-          <div class="card-suggest-infos">
+          <div class="card-suggest-infos d-flex flex-column justify-content-between">
+          <div>
             <h2><%= suggestion.name %></h2>
             <p><%= truncate(suggestion.summary, length: 500, separator: ". ") %></p>
+          </div>
             <div class="d-flex">
               <% suggestion.genres.each do |genre| %>
               <div class="suggest-genre">
