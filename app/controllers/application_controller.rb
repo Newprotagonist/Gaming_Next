@@ -1,9 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
-
   include Pundit::Authorization
-
+  before_action :set_cookie_moon
   # Pundit: white-list approach
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
@@ -22,9 +21,31 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: %i[photo])
   end
 
+  def moon
+    @authorize
+    cookies[:moon] = {
+      value: 'on'
+    }
+    redirect_to favorites_path
+  end
+
+  def sun
+    cookies[:moon] = {
+      value: 'off'
+    }
+    redirect_to favorites_path
+  end
+
+  def set_cookie_moon
+    cookies[:moon] = { value: 'on' } unless cookies[:moon]
+  end
+
   private
 
   def skip_pundit?
-    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
+    devise_controller? ||
+      params[:controller] =~ /(^(rails_)?admin)|(^pages$)/ ||
+      action_name == "moon" ||
+      action_name == "sun"
   end
 end
