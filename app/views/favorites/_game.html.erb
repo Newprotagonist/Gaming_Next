@@ -13,6 +13,6 @@
       <% end %>
     </div>
   </div>
-  <p><%= favorite.game.name %></p>
+  <p><%= truncate(favorite.game.name, length: 40, separator: " ") %></p>
 
 </div>
