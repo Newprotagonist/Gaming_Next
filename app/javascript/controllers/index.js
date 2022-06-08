@@ -13,5 +13,8 @@ application.register("hello", HelloController)
 import SearchbarController from "./searchbar_controller.js"
 application.register("searchbar", SearchbarController)
 
+import ShareModalController from "./share_modal_controller.js"
+application.register("share-modal", ShareModalController)
+
 import WishlistController from "./wishlist_controller.js"
 application.register("wishlist", WishlistController)
