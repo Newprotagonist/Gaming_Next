@@ -21,8 +21,8 @@
         <%= image_tag @game.screenshots[0], class: "main-screenshots" %>
       </div>
       <div class="right-screens">
-        <%= image_tag @game.screenshots[1].sample, class: "screenshots-show"%>
-        <%= image_tag @game.screenshots[2].sample, class: "screenshots-show" %>
+        <%= image_tag @game.screenshots[1], class: "screenshots-show"%>
+        <%= image_tag @game.screenshots[2], class: "screenshots-show" %>
       </div>
     </div>
   <% elsif @game.screenshots.count == 1 %>
