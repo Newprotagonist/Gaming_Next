@@ -17,8 +17,8 @@
             <% @suggestions[0].tags.uniq.first(8).each do |tag| %>
               <p><em><%= tag.capitalize %></em></p>
             <% end %>
-            <%= link_to game_path(@suggestions[0]), class: "game-link" do %>
-              <a class="btn button-dark-blue">Go to game's page</a>
+            <%= link_to game_path(@suggestions[0]), class: "button" do %>
+              Go to game's page
             <% end %>
           </div>
         </div>
@@ -37,8 +37,8 @@
             <% @suggestions[1].tags.uniq.first(8).each do |tag| %>
             <p><em><%= tag.capitalize %></em></p>
             <% end %>
-            <%= link_to game_path(@suggestions[1]), class: "game-link" do %>
-              <a class="btn button-dark-blue">Go to game's page</a>
+            <%= link_to game_path(@suggestions[1]), class: "button" do %>
+              Go to game's page
             <% end %>
           </div>
         </div>
@@ -57,9 +57,9 @@
             <% @suggestions[2].tags.uniq.first(8).each do |tag| %>
               <p><em><%= tag.capitalize %></em></p>
             <% end %>
-            <%= link_to game_path(@suggestions[2]), class: "game-link" do %>
-              <a class="btn button-dark-blue">Go to game's page</a>
-            <% end %>
+              <%= link_to game_path(@suggestions[2]), class: "button" do %>
+                Go to game's page
+              <% end %>
           </div>
         </div>
       </div>
