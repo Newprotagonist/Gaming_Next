@@ -23,12 +23,13 @@
             <li class="nav-item">
               <%= link_to "Wishlist", wishlists_path, class: "nav-link" %>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown d-flex align-items-center">
               <span class="hello"> 👋 Hello, <%= current_user.username %></span>
               <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
               <% else %>
-                <%= image_tag "profile-icon.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <i class="fa-solid fa-user-secret unknown-user" id="navbarDropdown" aria-haspopup="true" aria-expanded="false"
+                     data-bs-toggle="dropdown" ></i>
               <% end %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>

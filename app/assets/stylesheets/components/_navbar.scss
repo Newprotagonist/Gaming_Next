@@ -29,13 +29,11 @@
   font-family: 'Space Mono', monospace;
   color: $light-gray;
   font-weight: bold;
-  margin-left: 20px;
   line-height: 18px;
 }
 
 .hello {
   margin-left: 45px;
-  margin-bottom: 10px;
 }
 
 .drop-arrow {
@@ -55,4 +53,10 @@
     background-color: $dark-blue;
     color: $light-gray;
   }
+}
+
+.unknown-user {
+  color: $light-gray;
+  margin-left: 10px;
+  font-size: 25px;
 }
