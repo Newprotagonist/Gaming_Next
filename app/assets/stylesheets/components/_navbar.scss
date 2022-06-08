@@ -3,18 +3,56 @@
   background: $dark-blue;
   margin-bottom: 15px;
   color: white;
-  & .logo {
-    width: 40px;
-  }
 }
 
 .navbar-display .navbar-collapse {
   flex-grow: 0;
 }
 
+.navbar-nav {
+  text-align: right;
+}
+
 .navbar-light .navbar-nav .nav-link {
-  color: white;
+  color: $light-gray;
   &:hover{
-    color: $dark-gray
+    color: $light-gray;
+  }
+}
+
+.navbar-brand {
+  color: $light-gray;
+  margin: 15px;
+}
+
+.logo1 {
+  font-family: 'Space Mono', monospace;
+  color: $light-gray;
+  font-weight: bold;
+  margin-left: 20px;
+  line-height: 18px;
+}
+
+.hello {
+  margin-left: 45px;
+  margin-bottom: 10px;
+}
+
+.drop-arrow {
+  color: $light-gray;
+}
+
+.dropdown-menu {
+  background-color: $middle-blue;
+  border: none;
+  border-radius: 5px;
+
+  & a {
+    color: $light-gray;
+  }
+
+  & a:hover {
+    background-color: $dark-blue;
+    color: $light-gray;
   }
 }
