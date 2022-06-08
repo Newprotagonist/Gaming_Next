@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .homepage-background {
-  background-image: asset-url('banner.jpg');
+  background-color: $dark-blue;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -8,6 +8,8 @@
   align-items: center;
   color: $light-gray;
   flex-direction: column;
+  overflow: hidden;
+  position: relative;
 }
 
 .homepage-box {
@@ -15,69 +17,42 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-size: 20px;
+  text-align: center;
 }
 
 .homepage-h1 {
-  font-size: 6vw;
-  font-weight: bold;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin-bottom: 20px;
-  animation:
-    typing 0.75s steps(40, end),
+  width: 500px;
+  font-size: 50px;
+  margin-bottom: 30px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
 }
 
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+.homepage-box p {
+  position: relative;
+  width: 400px;
+  font-size: 15px;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
-
-
-.homepage-comments {
-  width: 85vw;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 20px;
-
-  & p {
-    width: 25vw;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    text-align: center;
-  }
+.homepagelogo {
+  position: absolute;
+  top: 30px;
+  left: 50px;
 }
 
-
-@media(max-width: 768px) {
-  .homepage-comments p {
-    font-size: 15px;
-  }
-
-  .homepage-comments .p2 {
-    font-size: 18px;
-  }
+.homepage-gif {
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  transform: rotate(315deg);
+  width: 500px;
 }
 
-@media(min-width: 768px) and (max-width: 992px) {
-  .homepage-comments p {
-    font-size: 16px;
-  }
-
-  .homepage-comments .p2 {
-    font-size: 25px;
-  }
-}
-
-@media(min-width: 992px) {
-  .homepage-comments p {
-    font-size: 16px;
-  }
-
-  .homepage-comments .p2 {
-    font-size: 30px;
-  }
+.white-arrow {
+  position: absolute;
+  left: 450px;
+  transform: rotate(290deg);
+  width: 200px;
+  top: 379px;
 }

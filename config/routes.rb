@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   resources :games, only: :show
   get 'suggestions', to: 'suggestions#index'
   get 'wishlists/:id/share', to: 'wishlists#share', as: :share
+  get '/moon', to: 'application#moon', as: 'moon'
+  get '/sun', to: 'application#sun', as: 'sun'
 end
