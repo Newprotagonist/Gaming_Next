@@ -26,6 +26,15 @@
   background-color: #142747
 }
 
+#copied-tooltip {
+    display: none;
+    margin-left: 40px;
+    padding: 5px 12px;
+    background-color: #000000df;
+    border-radius: 4px;
+    color: #fff;
+}
+
 @media(max-width: 768px) {
   .wishlist-share {
     position: absolute;
