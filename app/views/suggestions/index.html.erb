@@ -17,7 +17,7 @@
             <% @suggestions[0].tags.uniq.first(8).each do |tag| %>
               <p><em><%= tag.capitalize %></em></p>
             <% end %>
-            <%= link_to game_path(@suggestions[0]), class: "button" do %>
+            <%= link_to game_path(@suggestions[0]), class: "button mx-auto" do %>
               Go to game's page
             <% end %>
           </div>
@@ -37,7 +37,7 @@
             <% @suggestions[1].tags.uniq.first(8).each do |tag| %>
             <p><em><%= tag.capitalize %></em></p>
             <% end %>
-            <%= link_to game_path(@suggestions[1]), class: "button" do %>
+            <%= link_to game_path(@suggestions[1]), class: "button mx-auto" do %>
               Go to game's page
             <% end %>
           </div>
@@ -57,7 +57,7 @@
             <% @suggestions[2].tags.uniq.first(8).each do |tag| %>
               <p><em><%= tag.capitalize %></em></p>
             <% end %>
-              <%= link_to game_path(@suggestions[2]), class: "button" do %>
+              <%= link_to game_path(@suggestions[2]), class: "button mx-auto" do %>
                 Go to game's page
               <% end %>
           </div>
@@ -85,7 +85,7 @@
           <div class="card-suggest-infos d-flex flex-column justify-content-between">
           <div>
             <h2><%= suggestion.name %></h2>
-            <p><%= truncate(suggestion.summary, length: 500, separator: ". ") %></p>
+            <p><%= truncate(suggestion.summary, length: 450, separator: ". ") %></p>
           </div>
             <div class="d-flex">
               <% suggestion.genres.each do |genre| %>

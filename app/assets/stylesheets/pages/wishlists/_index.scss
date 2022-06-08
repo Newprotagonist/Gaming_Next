@@ -1,6 +1,6 @@
 .h1-wishlist {
-  color: $dark-gray;
   font-size: 2.5rem;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: bolder;
   text-shadow: 1px 1px 2px $dark-blue;
 }
@@ -10,4 +10,35 @@
   justify-content: flex-end;
   align-items: flex-end;
   flex-direction: column;
+}
+
+.wishlist-share {
+  position: absolute;
+  right: 100px;
+  top: 100px;
+}
+
+.modal-header {
+  background-color: #142747
+}
+
+.modal-body {
+  background-color: #142747
+}
+
+#copied-tooltip {
+    display: none;
+    margin-left: 40px;
+    padding: 5px 12px;
+    background-color: #000000df;
+    border-radius: 4px;
+    color: #fff;
+}
+
+@media(max-width: 768px) {
+  .wishlist-share {
+    position: absolute;
+    right: 20px;
+    top: 100px;
+  }
 }
