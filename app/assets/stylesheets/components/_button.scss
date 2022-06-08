@@ -13,15 +13,21 @@
   font-weight: lighter;
 
   &:hover {
-    background-color: $dark-gray;
+    background-color: $dark-azur;
     color: $light-gray;
   }
 }
 
 .button-favorites {
-  font-size: 15px;
+  font-size: 20px;
   padding: 5px 10px;
   text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  i {
+    margin-right: 10px;
+  }
 }
 
 .modebutton {

@@ -5,12 +5,23 @@
         <%= form_with url: favorites_path, method: :get, html: { class: "m-2", autocomplete: "off", data: {searchbar_target: "form"}} do |f| %>
         <%= f.text_field :query,
                         class: "form-control searchbar",
-                        placeholder: "Search for your favorite game !",
+                        placeholder: "Add your favorite game !",
                         value: params[:query],
                         data: {searchbar_target: "input",
                         action: "keyup->searchbar#update"} %>
         <% end %>
-        <%= link_to "Check our suggestions", suggestions_path, class: "button button-favorites" %>
+        <div class="position-relative">
+          <% if !@favorites.empty? %>
+            <div class="button-favorites button position-relative">
+              <i class="fa-solid fa-gamepad"></i>
+              <%= link_to "Suggest", suggestions_path, class: "favorite-link" %>
+              <%= image_tag "white_arrow.gif", alt: "gamer gif", class: "white-arrow-favorites-right" %>
+            </div>
+          <% else %>
+            <%= image_tag "white_arrow.gif", alt: "gamer gif", class: "white-arrow-favorites" %>
+          <% end %>
+        </div>
+
       </div>
       <ul data-searchbar-target="list" class="searchbarlist">
         <%= render 'list', games: @games %>

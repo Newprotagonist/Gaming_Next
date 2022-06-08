@@ -68,3 +68,32 @@
     color: black;
   }
 }
+
+.white-arrow-favorites {
+  position: absolute;
+  right: 415px;
+  top: -79px;
+  transform: rotate(290deg);
+  width: 200px;
+}
+
+.white-arrow-favorites-right {
+  position: absolute;
+  left: 101px;
+  top: -52px;
+  transform: rotate(124deg);
+  width: 200px;
+}
+
+.favorite-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 10px;
+  &a {
+    color: $light-gray;
+  }
+  &a:hover {
+    color: $light-gray;
+  }
+}
