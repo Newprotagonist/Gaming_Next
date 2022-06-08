@@ -40,7 +40,7 @@
             <li class="nav-item dropdown d-flex align-items-center">
               <span class="hello"><%= current_user.username %></span>
               <% if current_user.photo.attached? %>
-                <%= cl_image_tag current_user.photo.key, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, html: { style: "cursor: pointer" } %>
+                <%= cl_image_tag current_user.photo.key, class: "avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, style: "cursor: pointer" %>
               <% else %>
                 <i class="fa-solid fa-user-secret unknown-user" id="navbarDropdown" aria-haspopup="true" aria-expanded="false"
                      data-bs-toggle="dropdown" style="cursor: pointer"></i>

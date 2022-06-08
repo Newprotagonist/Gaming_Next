@@ -1,12 +1,9 @@
 <div class="container">
   <div class="wishlist-title mb-3">
-    <h1 class="h1-wishlist">Discover <%= @user.username %>'s list:</h1>
-  </div>
-  <div class="share-div p-3">
-    <%= social_share_button_tag("Share") %>
+    <h1 class="h1-wishlist"><%= @user.username %>'s wishlist:</h1>
   </div>
   <% if @wishlists.empty? %>
-  <p>No games added to wishlists yet</p>
+  <p>No games added to wishlist yet</p>
   <% else %>
   <ul class="container wishlist">
         <% @wishlists.each do |wishlist| %>
