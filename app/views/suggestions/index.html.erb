@@ -17,8 +17,8 @@
             <% @suggestions[0].tags.uniq.first(8).each do |tag| %>
               <p><em><%= tag.capitalize %></em></p>
             <% end %>
-            <%= link_to game_path(@suggestions[0]), class: "game-link" do %>
-              <a class="btn button-dark-blue">Go to game's page</a>
+            <%= link_to game_path(@suggestions[0]), class: "button" do %>
+              Go to game's page
             <% end %>
           </div>
         </div>
@@ -37,8 +37,8 @@
             <% @suggestions[1].tags.uniq.first(8).each do |tag| %>
             <p><em><%= tag.capitalize %></em></p>
             <% end %>
-            <%= link_to game_path(@suggestions[1]), class: "game-link" do %>
-              <a class="btn button-dark-blue">Go to game's page</a>
+            <%= link_to game_path(@suggestions[1]), class: "button" do %>
+              Go to game's page
             <% end %>
           </div>
         </div>
@@ -57,15 +57,17 @@
             <% @suggestions[2].tags.uniq.first(8).each do |tag| %>
               <p><em><%= tag.capitalize %></em></p>
             <% end %>
-            <%= link_to game_path(@suggestions[2]), class: "game-link" do %>
-              <a class="btn button-dark-blue">Go to game's page</a>
-            <% end %>
+              <%= link_to game_path(@suggestions[2]), class: "button" do %>
+                Go to game's page
+              <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
   <% end %>
+
+
   <div class="all">
     <h1 class="text-justify">All suggestions</h1>
     <div class="d-flex justify-content-between row">
@@ -77,12 +79,14 @@
               <%= image_tag "#{suggestion.cover}"%>
             <% end %>
             <div class="suggest-rating d-flex justify-content-center">
-                <p><i class="fa-solid fa-thumbs-up ml-2"></i><%= suggestion.rating.round(1) %>%</p>
+                <p><i class="fa-solid fa-face-grin"></i><%= suggestion.rating.round(1) %>%</p>
             </div>
           </div>
-          <div class="card-suggest-infos">
+          <div class="card-suggest-infos d-flex flex-column justify-content-between">
+          <div>
             <h2><%= suggestion.name %></h2>
             <p><%= truncate(suggestion.summary, length: 500, separator: ". ") %></p>
+          </div>
             <div class="d-flex">
               <% suggestion.genres.each do |genre| %>
               <div class="suggest-genre">
@@ -91,8 +95,8 @@
               <% end %>
             </div>
           </div>
-        <% end %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
