@@ -16,6 +16,11 @@
     background-color: $dark-azur;
     color: $light-gray;
   }
+
+  a:hover {
+    text-decoration: none;
+    color: $light-gray;
+  }
 }
 
 .button-favorites {
