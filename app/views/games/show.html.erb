@@ -1,16 +1,40 @@
 <div class="container">
-  <div class="images-part">
-    <div>
-      <%= image_tag @game.cover, class: "game-cover-show" %>
+  <% if @game.screenshots.count >= 5 %>
+    <div class="images-part">
+      <div>
+        <%= image_tag @game.cover, class: "game-cover-show" %>
+      </div>
+      <div>
+        <%= image_tag @game.screenshots[0..1].sample, class: "main-screenshots" %>
+      </div>
+      <div class="right-screens">
+        <%= image_tag @game.screenshots[2..3].sample, class: "screenshots-show"%>
+        <%= image_tag @game.screenshots[4..5].sample, class: "screenshots-show" %>
+      </div>
     </div>
-    <div>
-      <%= image_tag @game.screenshots[0..1].sample, class: "main-screenshots" %>
+  <% elsif @game.screenshots.count >= 2 %>
+    <div class="images-part">
+      <div>
+        <%= image_tag @game.cover, class: "game-cover-show" %>
+      </div>
+      <div>
+        <%= image_tag @game.screenshots[0], class: "main-screenshots" %>
+      </div>
+      <div class="right-screens">
+        <%= image_tag @game.screenshots[1].sample, class: "screenshots-show"%>
+        <%= image_tag @game.screenshots[2].sample, class: "screenshots-show" %>
+      </div>
     </div>
-    <div class="right-screens">
-      <%= image_tag @game.screenshots[2..3].sample, class: "screenshots-show"%>
-      <%= image_tag @game.screenshots[4..5].sample, class: "screenshots-show" %>
+  <% elsif @game.screenshots.count == 1 %>
+    <div class="images-part">
+      <div>
+        <%= image_tag @game.cover, class: "game-cover-show" %>
+      </div>
+      <div>
+        <%= image_tag @game.screenshots[0], class: "main-screenshots" %>
+      </div>
     </div>
-  </div>
+  <% end %>
   <div class="modal fade" id="storesModal" tabindex="-1" aria-labelledby="storesModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -29,7 +53,10 @@
     </div>
   </div>
   <div class="title-show">
-    <h1><%= @game.name %></h1><h2>⭐️<%= @game.rating.round(1) %>/100</h2>
+    <h1><%= @game.name %></h1>
+    <div class="rating-show">
+    <h4>⭐️<%= @game.rating.round(1) %>/100</h4>
+    </div>
     <turbo-frame id="buttons">
       <div class="choices-buttons">
         <div>
