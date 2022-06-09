@@ -12,7 +12,7 @@
         <%= image_tag @game.screenshots[4..5].sample, class: "screenshots-show" %>
       </div>
     </div>
-  <% elsif @game.screenshots.count >= 2 %>
+  <% elsif @game.screenshots.count >= 3 %>
     <div class="images-part">
       <div>
         <%= image_tag @game.cover, class: "game-cover-show" %>
@@ -25,13 +25,13 @@
         <%= image_tag @game.screenshots[2], class: "screenshots-show" %>
       </div>
     </div>
-  <% elsif @game.screenshots.count == 1 %>
+  <% elsif @game.screenshots.count >= 1 %>
     <div class="images-part">
       <div>
         <%= image_tag @game.cover, class: "game-cover-show" %>
       </div>
       <div>
-        <%= image_tag @game.screenshots[0], class: "main-screenshots" %>
+        <%= image_tag @game.screenshots[0..1].sample, class: "main-screenshots" %>
       </div>
     </div>
   <% end %>

@@ -37,8 +37,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_cookie_moon
-    cookies[:moon] = { value: 'off' }
-    # cookies[:moon] = { value: 'on' } unless cookies[:moon]
+    # cookies[:moon] = { value: 'off' }
+    cookies[:moon] = { value: 'on' } unless cookies[:moon]
   end
 
   private
