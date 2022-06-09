@@ -45,7 +45,12 @@
         <div class="modal-body">
           <div class="d-flex flex-wrap">
             <% @game.stores&.each do |store| %>
-              <%= link_to store.match(/(?<store>[a-z]+)\.[^\.]*$/)["store"].capitalize, store, target: "_blank", class: "button" %>
+              <% if store.match?("google") %>
+                <% store_name = "Google" %>
+              <% else %>
+                <% store_name = store.match(/(?<store>[a-z]+)\.[^\.]*$/)["store"].capitalize %>
+              <% end %>
+              <%= link_to store_name, store, target: "_blank", class: "button" %>
             <% end %>
           </div>
         </div>
