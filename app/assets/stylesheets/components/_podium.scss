@@ -110,6 +110,12 @@
 .top {
   h1 {
     font-family: 'Space Grotesk', sans-serif;
+    color: $dark-blue;
+  }
+}
+
+.moon .top {
+  h1 {
     color: white;
   }
 }

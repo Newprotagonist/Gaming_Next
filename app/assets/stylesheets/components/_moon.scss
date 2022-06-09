@@ -61,5 +61,12 @@ body.moon {
 }
 
 .moon .modal-body {
+  color: white;
   background-color: $dark-blue;
+}
+
+.moon .title-sugg {
+  h1 {
+    color: white;
+  }
 }
