@@ -5,6 +5,20 @@
   text-shadow: 1px 1px 2px $dark-blue;
 }
 
+.item-list {
+  color: $light-gray;
+  &:hover {
+    color: $light-gray;
+  }
+}
+
+.white-trashcan {
+  color: $white;
+  &:hover {
+    color: $white;
+  }
+}
+
 .share-div {
   display: flex;
   justify-content: flex-end;
@@ -42,5 +56,3 @@
     top: 100px;
   }
 }
-
-
