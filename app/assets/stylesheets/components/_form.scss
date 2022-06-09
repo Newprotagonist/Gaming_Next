@@ -6,10 +6,11 @@
 
 .form-link {
   padding: 5px;
-  color: $dark-gray;
+  color: $light-gray;
+  text-shadow: 1px 0px 2px $dark-blue;
   text-decoration: none;
 
   &:hover {
-    color: rgb(26, 24, 24);
+    color: $light-gray;
   }
 }
