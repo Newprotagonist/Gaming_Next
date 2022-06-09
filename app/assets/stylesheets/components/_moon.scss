@@ -24,3 +24,42 @@ body.moon {
 .moon .footer {
   background-color: $dark-blue;
 }
+
+.moon .add {
+    margin-left: 10px ;
+    i {
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: black;
+      color: white;
+  }
+}
+
+.moon .remove:hover {
+  i{
+    transition: 0.3s;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    color: white;
+  }
+}
+
+.add:hover {
+  i{
+    transition: 0.3s;
+    color: black;
+  }
+}
+
+.moon .remove {
+  i{
+    color: black;
+  }
+}
+
+.moon .modal-header {
+  background-color: $dark-blue;
+}
+
+.moon .modal-body {
+  background-color: $white;
+}
