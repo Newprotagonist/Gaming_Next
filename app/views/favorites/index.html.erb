@@ -15,10 +15,10 @@
             <div class="button-favorites button position-relative">
               <i class="fa-solid fa-gamepad"></i>
               <%= link_to "Suggest", suggestions_path, class: "favorite-link" %>
-              <%= image_tag "white_arrow.gif", alt: "gamer gif", class: "white-arrow-favorites-right" %>
+              <%= image_tag "white_arrow.gif?a=#{rand(1..10000)}", alt: "gamer gif", class: "white-arrow-favorites-right" %>
             </div>
           <% else %>
-            <%= image_tag "white_arrow.gif", alt: "gamer gif", class: "white-arrow-favorites" %>
+            <%= image_tag "white_arrow.gif?a=#{rand(1..10000)}", alt: "gamer gif", class: "white-arrow-favorites" %>
           <% end %>
         </div>
 
