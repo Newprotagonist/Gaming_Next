@@ -20,11 +20,11 @@
 
 .searchbarlist {
   list-style: none;
-  background-color: rgba(36, 87, 153, 0.727);
-  color: white;
+  background-color: rgba(255, 255, 255, 0.727);
+  color: rgb(0, 0, 0);
   a {
     text-decoration: none;
-    color: $light-gray;
+    color: black;
   }
   width: 600px;
   // margin-bottom: 100px;
@@ -48,6 +48,8 @@
     color: white;
   }
 }
+
+
 
 .remove {
   margin-left : 10px;
@@ -88,7 +90,7 @@
 .favorite-link {
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: lighter;
   margin-right: 10px;
   &a {
     color: $light-gray;
