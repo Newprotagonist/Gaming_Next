@@ -56,13 +56,14 @@ body.moon {
   }
 }
 
-.moon .modal-header {
+.moon .modal-color {
+  color: white;
   background-color: $dark-blue;
 }
 
-.moon .modal-body {
+.moon .modal-input {
   color: white;
-  background-color: $dark-blue;
+  background-color: rgba(36, 87, 153, 0.727);
 }
 
 .moon .title-sugg {

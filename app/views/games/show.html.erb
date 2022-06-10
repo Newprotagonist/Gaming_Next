@@ -38,15 +38,17 @@
   <div class="modal fade" id="storesModal" tabindex="-1" aria-labelledby="storesModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header modal-color">
           <h5 class="modal-title" id="storesModalLabel">Stores</h5>
           <button type="button" class="btn-close" style="background-color: white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body modal-color">
           <div class="d-flex flex-wrap">
             <% @game.stores&.each do |store| %>
               <% if store.match?("google") %>
                 <% store_name = "Google" %>
+              <% elsif store.match?("steam") %>
+                <% store_name = "Steam" %>
               <% else %>
                 <% store_name = store.match(/(?<store>[a-z]+)\.[^\.]*$/)["store"].capitalize %>
               <% end %>
