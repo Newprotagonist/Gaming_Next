@@ -99,3 +99,19 @@
     color: $light-gray;
   }
 }
+
+.black-arrow-favorites-right {
+  position: absolute;
+  left: 100px;
+  top: -42px;
+  transform: rotate(124deg);
+  width: 200px;
+}
+
+.black-arrow-favorites {
+  position: absolute;
+  right: 388px;
+  top: -111px;
+  transform: rotate(290deg);
+  width: 251px;
+}
