@@ -15,10 +15,18 @@
             <div class="button-favorites button position-relative">
               <i class="fa-solid fa-gamepad"></i>
               <%= link_to "Suggest", suggestions_path, class: "favorite-link" %>
-              <%= image_tag "white_arrow.gif?a=#{rand(1..10000)}", alt: "gamer gif", class: "white-arrow-favorites-right" %>
+              <% if cookies[:moon] == "off" %>
+                <%= image_tag "black_arrow.gif?a=#{rand(1..10000)}", alt: "gamer gif", class: "black-arrow-favorites-right" %>
+              <% elsif cookies[:moon] == "on" %>
+                <%= image_tag "white_arrow.gif?a=#{rand(1..10000)}", alt: "gamer gif", class: "white-arrow-favorites-right" %>
+              <% end %>
             </div>
           <% else %>
-            <%= image_tag "white_arrow.gif?a=#{rand(1..10000)}", alt: "gamer gif", class: "white-arrow-favorites" %>
+            <% if cookies[:moon] == "off" %>
+              <%= image_tag "black_arrow.gif?a=#{rand(1..10000)}", alt: "gamer gif", class: "black-arrow-favorites" %>
+            <% elsif cookies[:moon] == "on" %>
+              <%= image_tag "white_arrow.gif?a=#{rand(1..10000)}", alt: "gamer gif", class: "white-arrow-favorites" %>
+            <% end %>
           <% end %>
         </div>
 
