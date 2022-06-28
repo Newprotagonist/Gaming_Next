@@ -37,6 +37,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_cookie_moon
+    cookies[:moon] = { value: 'on' } unless cookies[:moon]
     if cookies[:moon] == { value: 'off' }
       cookies[:moon] = { value: 'off' }
     elsif cookies[:moon] == { value: 'on' }
